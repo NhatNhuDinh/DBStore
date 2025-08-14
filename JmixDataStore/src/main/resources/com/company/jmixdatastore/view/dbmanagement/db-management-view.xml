@@ -20,7 +20,6 @@
             </loader>
             <fetchPlan extends="_base"/>
         </collection>
-
     </data>
 
     <facets>
@@ -69,13 +68,10 @@
                           minHeight="400px">
                     <columns>
                         <column property="name" header="Column" sortable="true"/>
+                        <column property="type" header="Type" width="120px"/>
+                        <column property="nullable" header="Nullable" width="80px"/>
                     </columns>
                 </dataGrid>
-
-                <label value="Data" style="font-weight:bold; font-size: 14px; margin-top:10px;"/>
-                <dataGrid id="rowsGrid"
-                          height="100%"
-                          width="100%"/>
             </vbox>
         </split>
 
