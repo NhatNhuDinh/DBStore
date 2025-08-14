@@ -18,23 +18,24 @@
     </actions>
     <layout>
         <formLayout id="form" dataContainer="sourceDbDc">
+
             <responsiveSteps>
                 <responsiveStep minWidth="0" columns="1"/>
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
             <textField id="nameField" property="name"/>
+            <select property="dbtype" label="DB Type"/>
             <textField id="urlField" property="url"/>
             <textField id="portField" property="port"/>
             <textField id="usernameField" property="username"/>
             <textField id="passwordField" property="password"/>
             <textField id="dbnameField" property="dbname"/>
-            <select property="datatype"/>
+            <textField id="hostField" property="host"/>
         </formLayout>
         <hbox id="detailActions">
-            <button id="test_connection"/>
+            <button id="test_connection" text="Connect"/>
             <button id="saveAndCloseButton" action="saveAction"/>
             <button id="closeButton" action="closeAction"/>
-
         </hbox>
     </layout>
 </view>

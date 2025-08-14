@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://dbManagementView.title">
+    <data>
+        <collection id="sourceDbsDc" class="com.company.jmixdatastore.entity.SourceDb">
+            <loader id="sourceDbsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from SourceDb e]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+
+        <keyValueCollection id="tablesDc">
+            <properties>
+                <property name="name" datatype="string"/>
+                <property name="description" datatype="string"/>
+            </properties>
+        </keyValueCollection>
+
+        <keyValueCollection id="fieldsDc">
+            <properties>
+                <property name="name" datatype="string"/>
+                <property name="description" datatype="string"/>
+            </properties>
+        </keyValueCollection>
+
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <hbox>
+            <entityComboBox id="dbSourseComboBox"
+                            itemsContainer="sourceDbsDc"
+                            metaClass="SourceDb"
+                            width="100%"/>
+            <button id="newButton" text="Create"/>
+            <button id="connectButton" text="Connect"/>
+        </hbox>
+        <split width="100%" height="100%">
+            <vbox id="leftbox" spacing="true" width="100%" height="100%">
+                <dataGrid id="keyValueEntitiesDataGrid" dataContainer="tablesDc" minWidth="100px" width="100%">
+                    <actions>
+                        <action id="create" type="list_create"/>
+                        <action id="edit" type="list_edit"/>
+                        <action id="remove" type="list_remove"/>
+                    </actions>
+                    <columns>
+                        <column property="name"/>
+                        <column property="description"/>
+                    </columns>
+                </dataGrid>
+                <label value="Danh sách bảng"/>
+                <listBox id="tableListBox" width="100%" height="100%"/>
+
+            </vbox>
+
+            <vbox id="rightbox">
+                <dataGrid id="keyValueEntitiesDataGrid_1" dataContainer="fieldsDc" minWidth="100px" width="100%">
+                    <actions>
+                        <action id="create" type="list_create"/>
+                        <action id="edit" type="list_edit"/>
+                        <action id="remove" type="list_remove"/>
+                    </actions>
+                    <columns>
+                        <column property="name"/>
+                        <column property="description"/>
+                    </columns>
+                </dataGrid>
+
+            </vbox>
+        </split>
+    </layout>
+</view>

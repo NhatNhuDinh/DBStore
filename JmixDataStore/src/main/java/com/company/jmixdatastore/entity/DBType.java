@@ -7,8 +7,8 @@ import org.springframework.lang.Nullable;
 
 public enum DBType implements EnumClass<String> {
 
-    POSTGRES("P"),
-    ORACLE("O"),
+    POSTGRESQL("P"),
+    SQLSERVER("S"),
     MYSQL("M");
 
     private final String id;

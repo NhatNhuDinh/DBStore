@@ -53,6 +53,8 @@
                 <column property="username"/>
                 <column property="password"/>
                 <column property="dbname"/>
+                <column property="dbtype"/>
+                <column property="host"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

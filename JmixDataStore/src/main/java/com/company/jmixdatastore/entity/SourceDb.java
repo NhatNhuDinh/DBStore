@@ -44,7 +44,7 @@ public class SourceDb {
     private String dbname;
 
     @Column(name = "DATATYPE")
-    private String datatype;
+    private String dbtype;
 
     public String getHost() {
         return host;
@@ -54,12 +54,12 @@ public class SourceDb {
         this.host = host;
     }
 
-    public DBType getDatatype() {
-        return datatype == null ? null : DBType.fromId(datatype);
+    public DBType getDbtype() {
+        return dbtype == null ? null : DBType.fromId(dbtype);
     }
 
-    public void setDatatype(DBType datatype) {
-        this.datatype = datatype == null ? null : datatype.getId();
+    public void setDbtype(DBType datatype) {
+        this.dbtype = datatype == null ? null : datatype.getId();
     }
 
     public String getDbname() {

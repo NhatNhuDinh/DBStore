@@ -1,0 +1,112 @@
+package com.company.jmixdatastore.view.dbmanagement;
+
+
+import com.company.jmixdatastore.entity.SourceDb;
+import com.company.jmixdatastore.service.dbcon.DbConnect;
+import com.company.jmixdatastore.view.main.MainView;
+import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.listbox.ListBox;
+import com.vaadin.flow.router.Route;
+import io.jmix.core.entity.KeyValueEntity;
+import io.jmix.flowui.DialogWindows;
+import io.jmix.flowui.Notifications;
+import io.jmix.flowui.component.combobox.EntityComboBox;
+import io.jmix.flowui.kit.component.button.JmixButton;
+import io.jmix.flowui.model.CollectionLoader;
+import io.jmix.flowui.model.InstanceContainer;
+import io.jmix.flowui.model.KeyValueCollectionContainer;
+import io.jmix.flowui.view.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+@Route(value = "db-management-view", layout = MainView.class)
+@ViewController(id = "DbManagementView")
+@ViewDescriptor(path = "db-management-view.xml")
+public class DbManagementView extends StandardView {
+
+    @Autowired
+    private DialogWindows dialogWindows;
+
+    @Autowired
+    private DbConnect dbConnect;
+
+    @ViewComponent
+    private CollectionLoader<SourceDb> sourceDbsDl;
+
+    @ViewComponent
+    private EntityComboBox<SourceDb> dbSourseComboBox;
+
+    @ViewComponent
+    private ListBox<String> tableListBox;
+
+    @ViewComponent
+    private BoxLayout rightbox;
+    @ViewComponent
+    private KeyValueCollectionContainer tablesDc;
+    @ViewComponent
+    private KeyValueCollectionContainer fieldsDc;
+    @Autowired
+    private Notifications notifications;
+
+    @Subscribe(id = "newButton", subject = "clickListener")
+    public void onNewButtonClick(final ClickEvent<JmixButton> event) {
+        dialogWindows.detail(this, SourceDb.class)
+                .newEntity()
+                .withAfterCloseListener(closeEvent -> {
+                    if (closeEvent.closedWith(StandardOutcome.SAVE)) {
+                       // Set the newly created entity in the combo box
+                      SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
+                      SourceDb entity = sourceDbDetailView.getEditedEntity();
+                      dbSourseComboBox.setValue(entity);
+                    }
+
+                })
+                .build()
+                .open();
+
+    }
+
+    @Subscribe(id = "connectButton", subject = "clickListener")
+    public void onConnectButtonClick(final ClickEvent<JmixButton> event) {
+        SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+        List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
+//        tableListBox.setItems(tableList);
+        tablesDc.getMutableItems().clear();
+        List<KeyValueEntity> tableEntities = new ArrayList<>();
+        for(String tableName : tableList) {
+            KeyValueEntity newTable = new KeyValueEntity();
+            newTable.setValue("name", tableName);
+            newTable.setValue("description", "Table: " + tableName);
+            tableEntities.add(newTable);
+        }
+        tablesDc.setItems(tableEntities);
+
+    }
+
+
+    @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
+    public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
+        SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+        fieldsDc.getMutableItems().clear();
+        String tableName = event.getItem().getValue("name");
+        notifications.create("Selected table " + tableName )
+                .withType(Notifications.Type.SUCCESS)
+                .show();
+        List<String> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
+        List<KeyValueEntity> fieldsEntites = new ArrayList<>();
+        for(String fieldName : fieldList) {
+            KeyValueEntity newField = new KeyValueEntity();
+            newField.setValue("name", fieldName);
+            newField.setValue("description", "Field: " + fieldName);
+            fieldsEntites.add(newField);
+        }
+        fieldsDc.setItems(fieldsEntites);
+
+    }
+
+}
