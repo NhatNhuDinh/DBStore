@@ -1,6 +1,7 @@
 package com.company.jmixdatastore.service.dbcon;
 
 import com.company.jmixdatastore.entity.SourceDb;
+import io.jmix.core.entity.KeyValueEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -62,21 +63,26 @@ public class DbConnectImpl implements DbConnect{
     }
 
     @Override
-    public List<String> loadTableFields(SourceDb sourceDb, String tableName) {
-        List<String> columns = new ArrayList<>();
+    public List<KeyValueEntity> loadTableFields(SourceDb sourceDb, String tableName) {
+        List<KeyValueEntity> fields = new ArrayList<>();
         try{
             Connection connection = getConnection(sourceDb);
             // Lấy metadata từ connection
             DatabaseMetaData metaData = connection.getMetaData();
             ResultSet resultSet = metaData.getColumns(null, null, tableName, "%");
             while (resultSet.next()) {
-                String columnName = resultSet.getString("COLUMN_NAME");
-                columns.add(columnName);
+                KeyValueEntity field = new KeyValueEntity();
+                field.setValue("name",resultSet.getString("COLUMN_NAME"));
+                field.setValue("dataType", resultSet.getString("TYPE_NAME"));
+                field.setValue("size", resultSet.getInt("COLUMN_SIZE"));
+                field.setValue("nullable", resultSet.getInt("NULLABLE") == DatabaseMetaData.columnNullable);
+                field.setValue("default", resultSet.getString("COLUMN_DEF"));
+                fields.add(field);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return columns;
+        return fields;
     }
 
 

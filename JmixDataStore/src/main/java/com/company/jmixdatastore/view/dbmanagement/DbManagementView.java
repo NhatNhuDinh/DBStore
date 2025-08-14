@@ -97,15 +97,8 @@ public class DbManagementView extends StandardView {
         notifications.create("Selected table " + tableName )
                 .withType(Notifications.Type.SUCCESS)
                 .show();
-        List<String> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
-        List<KeyValueEntity> fieldsEntites = new ArrayList<>();
-        for(String fieldName : fieldList) {
-            KeyValueEntity newField = new KeyValueEntity();
-            newField.setValue("name", fieldName);
-            newField.setValue("description", "Field: " + fieldName);
-            fieldsEntites.add(newField);
-        }
-        fieldsDc.setItems(fieldsEntites);
+        List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
+        fieldsDc.setItems(fieldList);
 
     }
 
