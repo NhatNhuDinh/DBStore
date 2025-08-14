@@ -32,7 +32,7 @@ public class SourceDb {
     private String url;
 
     @Column(name = "PORT")
-    private Integer port;
+    private String port;
 
     @Column(name = "USERNAME")
     private String username;
@@ -44,7 +44,15 @@ public class SourceDb {
     private String dbname;
 
     @Column(name = "DATATYPE")
-    private String datatype;
+    private String dbtype;
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getPort() {
+        return port;
+    }
 
     public String getHost() {
         return host;
@@ -54,12 +62,12 @@ public class SourceDb {
         this.host = host;
     }
 
-    public DBType getDatatype() {
-        return datatype == null ? null : DBType.fromId(datatype);
+    public DBType getDbtype() {
+        return dbtype == null ? null : DBType.fromId(dbtype);
     }
 
-    public void setDatatype(DBType datatype) {
-        this.datatype = datatype == null ? null : datatype.getId();
+    public void setDbtype(DBType dbtype) {
+        this.dbtype = dbtype == null ? null : dbtype.getId();
     }
 
     public String getDbname() {
@@ -84,14 +92,6 @@ public class SourceDb {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Integer getPort() {
-        return port;
-    }
-
-    public void setPort(Integer port) {
-        this.port = port;
     }
 
     public String getUrl() {

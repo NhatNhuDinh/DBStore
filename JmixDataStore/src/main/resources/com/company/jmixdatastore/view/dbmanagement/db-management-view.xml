@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="Database Management">
+
+    <data>
+        <!-- Container cho danh sách cột -->
+        <collection id="columnsDc" class="com.company.jmixdatastore.view.dbmanagement.ColumnInfo">
+            <loader id="columnsDl" readOnly="true"/>
+        </collection>
+
+        <!-- Container cho danh sách bảng -->
+        <collection id="tablesDc" class="com.company.jmixdatastore.view.dbmanagement.TableInfo">
+            <loader id="tablesDl" readOnly="true"/>
+        </collection>
+
+        <!-- Container cho danh sách SourceDb -->
+        <collection id="sourceDbsDc" class="com.company.jmixdatastore.entity.SourceDb">
+            <loader id="sourceDbsDl" readOnly="true">
+                <query><![CDATA[select e from SourceDb e]]></query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+
+    </data>
+
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+
+    <layout spacing="true" padding="true">
+
+        <!-- Thanh chọn Database -->
+        <hbox spacing="true" width="100%">
+            <entityComboBox id="dbSourseComboBox"
+                            itemsContainer="sourceDbsDc"
+                            metaClass="SourceDb"
+                            placeholder="Select database"
+                            width="300px"/>
+            <button id="newButton" text="Create"/>
+            <button id="connectButton" text="Connect" themeNames="primary"/>
+        </hbox>
+
+        <!-- Split Layout với orientation và splitter position -->
+        <split orientation="HORIZONTAL"
+               height="100%"
+               width="100%">
+
+            <!-- Panel trái: Danh sách bảng -->
+            <vbox spacing="true" padding="true" height="100%" width="100%">
+                <label value="Tables" style="font-weight:bold; font-size: 14px;"/>
+                <dataGrid id="tablesGrid"
+                          dataContainer="tablesDc"
+                          height="100%"
+                          width="100%"
+                          minHeight="400px">
+                    <columns>
+                        <column property="name" header="Table Name" sortable="true"/>
+                    </columns>
+                </dataGrid>
+            </vbox>
+
+            <!-- Panel phải: Danh sách cột -->
+            <vbox spacing="true" padding="true" height="100%" width="100%">
+                <label value="Columns" style="font-weight:bold; font-size: 14px;"/>
+                <dataGrid id="columnsGrid"
+                          dataContainer="columnsDc"
+                          height="100%"
+                          width="100%"
+                          minHeight="400px">
+                    <columns>
+                        <column property="name" header="Column" sortable="true"/>
+                    </columns>
+                </dataGrid>
+
+                <label value="Data" style="font-weight:bold; font-size: 14px; margin-top:10px;"/>
+                <dataGrid id="rowsGrid"
+                          height="100%"
+                          width="100%"/>
+            </vbox>
+        </split>
+
+    </layout>
+</view>

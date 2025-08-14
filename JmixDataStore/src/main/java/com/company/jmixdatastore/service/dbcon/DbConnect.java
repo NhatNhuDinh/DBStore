@@ -1,5 +1,7 @@
 package com.company.jmixdatastore.service.dbcon;
 
+import com.company.jmixdatastore.entity.SourceDb;
+
 public interface DbConnect {
-    boolean connect(String host, String port, String dbName, String userName, String password);
+    boolean connect(SourceDb db);
 }

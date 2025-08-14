@@ -37,6 +37,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     runtimeOnly 'org.hsqldb:hsqldb'
+    runtimeOnly 'org.postgresql:postgresql:42.7.3'    // PostgreSQL
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'   // MySQL
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc11:23.2.0.0' // Oracle nếu cần
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

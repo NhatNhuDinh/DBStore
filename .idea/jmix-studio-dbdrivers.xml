@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseDriversConfigurationState">
+    <drivers>
+      <db-driver id="org.hsqldb.jdbc.JDBCDriver">
+        <library url="/C:/Users/adim/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.7.3/85b49338b36f3051d217295596cf92beb92e4bfb/hsqldb-2.7.3.jar" />
+      </db-driver>
+    </drivers>
+  </component>
+</project>
