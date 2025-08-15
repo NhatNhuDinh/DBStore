@@ -4,7 +4,6 @@ import com.company.jmixdatastore.entity.SourceDb;
 import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.view.main.MainView;
 import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.Notifications;

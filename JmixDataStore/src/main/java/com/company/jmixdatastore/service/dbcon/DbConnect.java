@@ -8,7 +8,8 @@ import java.util.List;
 public interface DbConnect {
 
     boolean connect(SourceDb sourceDb);
-    List<String> loadTableList(SourceDb sourceDb);
 
+
+    List<String> loadTableList(SourceDb sourceDb);
     List<KeyValueEntity> loadTableFields(SourceDb sourceDb, String tableName);
 }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/JmixDataStore">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/JmixDataStore">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nhuxuanviet&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NhatNhuDinh/DBStore.git&quot;,
+    &quot;accountId&quot;: &quot;2a5800b2-1320-4f39-98d3-0f1e8a638075&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="31HYlE48bQCw5yMj8rW2cH0G6xy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build JmixDataStore.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "708",
+    "RequestMappingsPanelWidth1": "707",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.JmixApplication.executor": "Debug",
+    "Spring Boot.JmixDataStoreApplication.executor": "Debug",
+    "com.haulmont.jmixstudio.ai.ui.toolwindow.JmixAiToolWindowInitializer.firstProjectStart": "false",
+    "com.haulmont.jmixstudio.intellij.ui.cubatree.toolwindow.ToolWindowOpener.firstProjectStart": "false",
+    "git-widget-placeholder": "xuan-viet",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "D:/OJT/DBStore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver",
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="JmixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="JmixDataStore.main" />
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.company.jmixdatastore.JmixDataStoreApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="" />
+      <created>1755182613955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755182613955</updated>
+      <workItem from="1755182615031" duration="7987000" />
+      <workItem from="1755223479045" duration="507000" />
+      <workItem from="1755224083990" duration="169000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

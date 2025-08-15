@@ -113,7 +113,7 @@
                                 header="Kích thước"
                                 width="100px"/>
                         <column property="nullable"
-                                header="Null?"
+                                header="Null"
                                 width="80px"/>
                         <column property="default"
                                 header="Giá trị mặc định"

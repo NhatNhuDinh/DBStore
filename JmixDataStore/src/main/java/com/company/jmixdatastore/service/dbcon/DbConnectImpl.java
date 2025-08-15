@@ -1,7 +1,9 @@
 package com.company.jmixdatastore.service.dbcon;
 
 import com.company.jmixdatastore.entity.SourceDb;
+import io.jmix.core.DataManager;
 import io.jmix.core.entity.KeyValueEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -9,6 +11,9 @@ import java.util.*;
 
 @Service
 public class DbConnectImpl implements DbConnect{
+
+    @Autowired
+    protected DataManager dataManager;
 
     @Override
     public boolean connect(SourceDb sourceDb) {
@@ -19,6 +24,7 @@ public class DbConnectImpl implements DbConnect{
     public List<String> loadTableList(SourceDb sourceDb) {
         Connection connection = getConnection(sourceDb);
         try {
+            assert connection != null;
             DatabaseMetaData md = connection.getMetaData();
 
             String vendor = sourceDb.getDbtype() != null
@@ -29,13 +35,11 @@ public class DbConnectImpl implements DbConnect{
             String schemaPattern = null;
 
             if (vendor.contains("postgres")) {
-                catalog = null;
                 schemaPattern = (connection.getSchema() == null || connection.getSchema().isBlank())
                         ? "public"
                         : connection.getSchema();
             } else if (vendor.contains("mysql") || vendor.contains("mariadb")) {
                 catalog = connection.getCatalog();
-                schemaPattern = null;
             } else if (vendor.contains("sql server") || vendor.contains("microsoft")) {
                 catalog = connection.getCatalog();
                 schemaPattern = (connection.getSchema() == null || connection.getSchema().isBlank())
@@ -68,10 +72,11 @@ public class DbConnectImpl implements DbConnect{
         try{
             Connection connection = getConnection(sourceDb);
             // Lấy metadata từ connection
+            assert connection != null;
             DatabaseMetaData metaData = connection.getMetaData();
             ResultSet resultSet = metaData.getColumns(null, null, tableName, "%");
             while (resultSet.next()) {
-                KeyValueEntity field = new KeyValueEntity();
+                KeyValueEntity field = dataManager.create(KeyValueEntity.class);
                 field.setValue("name",resultSet.getString("COLUMN_NAME"));
                 field.setValue("dataType", resultSet.getString("TYPE_NAME"));
                 field.setValue("size", resultSet.getInt("COLUMN_SIZE"));
@@ -85,30 +90,25 @@ public class DbConnectImpl implements DbConnect{
         return fields;
     }
 
-
     private Connection getConnection(SourceDb sourceDb) {
         String url = sourceDb.getUrl();
-        String driver = "";
         if(url == null || url.isEmpty()) {
-            switch (sourceDb.getDbtype().name().toLowerCase()) {
-                case "mysql":
-                    driver = "com.mysql.cj.jdbc.Driver";
-                    url = String.format("jdbc:mysql://%s:%d/%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
-                    break;
-                case "postgresql":
-                    driver = "org.postgresql.Driver";
-                    url = String.format("jdbc:postgresql://%s:%d/%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
-                    break;
-                case "sqlserver":
-                    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-                    url = String.format("jdbc:sqlserver://%s:%d;databaseName=%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
-                    break;
-                default:
-                    throw new IllegalArgumentException("Không hỗ trợ loại DB: " + sourceDb.getDbtype().name());
-            }
+            url = switch (sourceDb.getDbtype().name().toLowerCase()) {
+                case "mysql" ->
+                        String.format("jdbc:mysql://%s:%s/%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+                case "postgresql" ->
+                        String.format("jdbc:postgresql://%s:%s/%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+                case "sqlserver" ->
+                        String.format("jdbc:sqlserver://%s:%s;databaseName=%s", sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+                default -> throw new IllegalArgumentException("Không hỗ trợ loại DB: " + sourceDb.getDbtype().name());
+            };
+        }
+        if(url.contains("sqlserver")) {
+            url += ";encrypt=true;trustServerCertificate=true";
+        }else if(url.contains("mysql")) {
+            url += "?nullCatalogMeansCurrent=true&useInformationSchema=true";
         }
         try {
-            Class.forName(driver);
             Connection connection = DriverManager.getConnection(url, sourceDb.getUsername(), sourceDb.getPassword());
             if (connection != null) {
                 return connection;

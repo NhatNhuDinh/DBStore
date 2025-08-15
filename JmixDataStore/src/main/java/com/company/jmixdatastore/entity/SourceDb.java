@@ -32,12 +32,14 @@ public class SourceDb {
     private String url;
 
     @Column(name = "PORT")
-    private Integer port;
+    private String port;
 
-    @Column(name = "USERNAME")
+    @NotNull(message = "Username can not be blank !!")
+    @Column(name = "USERNAME", nullable = false)
     private String username;
 
-    @Column(name = "PASSWORD")
+    @NotNull(message = "Password can not be blank !!")
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
 
     @Column(name = "DBNAME")
@@ -45,6 +47,14 @@ public class SourceDb {
 
     @Column(name = "DATATYPE")
     private String dbtype;
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getPort() {
+        return port;
+    }
 
     public String getHost() {
         return host;
@@ -84,14 +94,6 @@ public class SourceDb {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Integer getPort() {
-        return port;
-    }
-
-    public void setPort(Integer port) {
-        this.port = port;
     }
 
     public String getUrl() {

@@ -6,23 +6,21 @@ import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.listbox.ListBox;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.router.Route;
+import io.jmix.core.DataManager;
 import io.jmix.core.entity.KeyValueEntity;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.Notifications;
 import io.jmix.flowui.component.combobox.EntityComboBox;
 import io.jmix.flowui.kit.component.button.JmixButton;
-import io.jmix.flowui.model.CollectionLoader;
 import io.jmix.flowui.model.InstanceContainer;
 import io.jmix.flowui.model.KeyValueCollectionContainer;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Route(value = "db-management-view", layout = MainView.class)
 @ViewController(id = "DbManagementView")
@@ -30,22 +28,23 @@ import java.util.Map;
 public class DbManagementView extends StandardView {
 
     @Autowired
+    protected DataManager dataManager;
+    @Autowired
     private DialogWindows dialogWindows;
 
     @Autowired
     private DbConnect dbConnect;
 
     @ViewComponent
-    private CollectionLoader<SourceDb> sourceDbsDl;
-
-    @ViewComponent
     private EntityComboBox<SourceDb> dbSourseComboBox;
 
     @ViewComponent
-    private ListBox<String> tableListBox;
-
+    private Span tableCount;
     @ViewComponent
-    private BoxLayout rightbox;
+    private Span fieldCount;
+    @ViewComponent
+    private Span connectionStatus;
+
     @ViewComponent
     private KeyValueCollectionContainer tablesDc;
     @ViewComponent
@@ -74,18 +73,26 @@ public class DbManagementView extends StandardView {
     @Subscribe(id = "connectButton", subject = "clickListener")
     public void onConnectButtonClick(final ClickEvent<JmixButton> event) {
         SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+        if (selectedSourceDb == null) {
+            tableCount.setText("Tổng số bảng: 0");
+            fieldCount.setText("Tổng số cột: 0");
+            connectionStatus.setText("Trạng thái: Chưa kết nối");
+            return;
+        }
         List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
-//        tableListBox.setItems(tableList);
         tablesDc.getMutableItems().clear();
         List<KeyValueEntity> tableEntities = new ArrayList<>();
         for(String tableName : tableList) {
-            KeyValueEntity newTable = new KeyValueEntity();
+            KeyValueEntity newTable = dataManager.create(KeyValueEntity.class);
             newTable.setValue("name", tableName);
             newTable.setValue("description", "Table: " + tableName);
             tableEntities.add(newTable);
         }
         tablesDc.setItems(tableEntities);
-
+        tableCount.setText("Tổng số bảng: " + tableEntities.size());
+        fieldsDc.setItems(List.of());
+        fieldCount.setText("Tổng số cột: 0");
+        connectionStatus.setText("Trạng thái: Đã kết nối");
     }
 
 
@@ -99,7 +106,7 @@ public class DbManagementView extends StandardView {
                 .show();
         List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
         fieldsDc.setItems(fieldList);
-
+        fieldCount.setText("Tổng số cột: " + fieldList.size());
     }
 
 }
