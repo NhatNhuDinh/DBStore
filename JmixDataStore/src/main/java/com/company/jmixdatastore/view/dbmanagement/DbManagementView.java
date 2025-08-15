@@ -3,10 +3,12 @@ package com.company.jmixdatastore.view.dbmanagement;
 
 import com.company.jmixdatastore.entity.SourceDb;
 import com.company.jmixdatastore.service.dbcon.DbConnect;
+import com.company.jmixdatastore.service.dbcon.DbConnectFactory;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.listbox.ListBox;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.entity.KeyValueEntity;
 import io.jmix.flowui.DialogWindows;
@@ -33,7 +35,7 @@ public class DbManagementView extends StandardView {
     private DialogWindows dialogWindows;
 
     @Autowired
-    private DbConnect dbConnect;
+    private DbConnectFactory dbConnectFactory;
 
     @ViewComponent
     private CollectionLoader<SourceDb> sourceDbsDl;
@@ -42,14 +44,14 @@ public class DbManagementView extends StandardView {
     private EntityComboBox<SourceDb> dbSourseComboBox;
 
     @ViewComponent
-    private ListBox<String> tableListBox;
+    private BoxLayout rightbox;
 
     @ViewComponent
-    private BoxLayout rightbox;
-    @ViewComponent
     private KeyValueCollectionContainer tablesDc;
+
     @ViewComponent
     private KeyValueCollectionContainer fieldsDc;
+
     @Autowired
     private Notifications notifications;
 
@@ -59,6 +61,7 @@ public class DbManagementView extends StandardView {
                 .newEntity()
                 .withAfterCloseListener(closeEvent -> {
                     if (closeEvent.closedWith(StandardOutcome.SAVE)) {
+                        sourceDbsDl.load();
                        // Set the newly created entity in the combo box
                       SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
                       SourceDb entity = sourceDbDetailView.getEditedEntity();
@@ -74,8 +77,8 @@ public class DbManagementView extends StandardView {
     @Subscribe(id = "connectButton", subject = "clickListener")
     public void onConnectButtonClick(final ClickEvent<JmixButton> event) {
         SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
         List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
-//        tableListBox.setItems(tableList);
         tablesDc.getMutableItems().clear();
         List<KeyValueEntity> tableEntities = new ArrayList<>();
         for(String tableName : tableList) {
@@ -96,7 +99,9 @@ public class DbManagementView extends StandardView {
         String tableName = event.getItem().getValue("name");
         notifications.create("Selected table " + tableName )
                 .withType(Notifications.Type.SUCCESS)
+                .withPosition(Notification.Position.TOP_END)
                 .show();
+        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
         List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
         fieldsDc.setItems(fieldList);
 
