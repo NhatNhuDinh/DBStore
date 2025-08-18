@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-140018-a96b91a9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-140856-a96b91a9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +41,13 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JmixLiquibaseChangeLog" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -69,40 +81,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build JmixDataStore.executor": "Run",
-    "Gradle.JmixDataStore [assemble].executor": "Run",
-    "Jmix Application.JmixDataStore Jmix Application.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "708",
-    "RequestMappingsPanelWidth1": "707",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.JmixApplication.executor": "Debug",
-    "Spring Boot.JmixDataStoreApplication.executor": "Debug",
-    "com.haulmont.jmixstudio.ai.ui.toolwindow.JmixAiToolWindowInitializer.firstProjectStart": "false",
-    "com.haulmont.jmixstudio.intellij.ui.cubatree.toolwindow.ToolWindowOpener.firstProjectStart": "false",
-    "git-widget-placeholder": "nhat",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "D:/OJT/DBStore",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build JmixDataStore.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JmixDataStore [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Jmix Application.JmixDataStore Jmix Application.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;708&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;707&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.JmixApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.JmixDataStoreApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;com.haulmont.jmixstudio.ai.ui.toolwindow.JmixAiToolWindowInitializer.firstProjectStart&quot;: &quot;false&quot;,
+    &quot;com.haulmont.jmixstudio.intellij.ui.cubatree.toolwindow.ToolWindowOpener.firstProjectStart&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;nhat&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OJT/DBStore&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Jmix Application.JmixDataStore Jmix Application">
     <configuration name="JmixDataStore Jmix Application" type="JmixRunApplication">
       <option name="MAIN_CLASS_NAME" value="com.company.jmixdatastore.JmixDataStoreApplication" />

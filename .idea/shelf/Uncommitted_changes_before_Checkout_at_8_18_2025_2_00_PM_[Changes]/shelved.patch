@@ -1,0 +1,87 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"343d8ded-6a34-438d-a028-363633fb8055\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$/JmixDataStore\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$/JmixDataStore\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"JmixDataStore\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;nhuxuanviet&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/NhatNhuDinh/DBStore.git&quot;,\r\n    &quot;accountId&quot;: &quot;2a5800b2-1320-4f39-98d3-0f1e8a638075&quot;\r\n  }\r\n}</component>\r\n  <component name=\"KubernetesApiPersistence\">{}</component>\r\n  <component name=\"KubernetesApiProvider\">{\r\n  &quot;isMigrated&quot;: true\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"31HYlE48bQCw5yMj8rW2cH0G6xy\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Gradle.Build JmixDataStore.executor\": \"Run\",\r\n    \"Gradle.JmixDataStore [assemble].executor\": \"Run\",\r\n    \"Jmix Application.JmixDataStore Jmix Application.executor\": \"Debug\",\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"708\",\r\n    \"RequestMappingsPanelWidth1\": \"707\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"Spring Boot.JmixApplication.executor\": \"Debug\",\r\n    \"Spring Boot.JmixDataStoreApplication.executor\": \"Debug\",\r\n    \"com.haulmont.jmixstudio.ai.ui.toolwindow.JmixAiToolWindowInitializer.firstProjectStart\": \"false\",\r\n    \"com.haulmont.jmixstudio.intellij.ui.cubatree.toolwindow.ToolWindowOpener.firstProjectStart\": \"false\",\r\n    \"git-widget-placeholder\": \"xuan-viet\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"junie.onboarding.icon.badge.shown\": \"true\",\r\n    \"last_opened_file_path\": \"D:/OJT/DBStore\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"postgresql\",\r\n      \"sqlserver\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Jmix Application.JmixDataStore Jmix Application\">\r\n    <configuration name=\"JmixDataStore Jmix Application\" type=\"JmixRunApplication\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.company.jmixdatastore.JmixDataStoreApplication\" />\r\n      <module name=\"JmixDataStore.main\" />\r\n      <shortenClasspath name=\"ARGS_FILE\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/JmixDataStore\" />\r\n      <method v=\"2\">\r\n        <option name=\"JmixCleanConf\" enabled=\"false\" />\r\n        <option name=\"JmixCheckIncludes\" enabled=\"false\" />\r\n        <option name=\"JmixSyncDb\" enabled=\"false\" />\r\n        <option name=\"JmixAssemble\" enabled=\"false\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JmixRunApplication\">\r\n      <method v=\"2\">\r\n        <option name=\"JmixCleanConf\" enabled=\"false\" />\r\n        <option name=\"JmixCheckIncludes\" enabled=\"false\" />\r\n        <option name=\"JmixSyncDb\" enabled=\"false\" />\r\n        <option name=\"JmixAssemble\" enabled=\"false\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"JmixApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"JmixDataStore.main\" />\r\n      <option name=\"SHORTEN_COMMAND_LINE\" value=\"ARGS_FILE\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.company.jmixdatastore.JmixDataStoreApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <option name=\"SHORTEN_COMMAND_LINE\" value=\"ARGS_FILE\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"StructureViewState\">\r\n    <option name=\"selectedTab\" value=\"Logical\" />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"343d8ded-6a34-438d-a028-363633fb8055\" name=\"Changes\" comment=\"\" />\r\n      <created>1755182613955</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1755182613955</updated>\r\n      <workItem from=\"1755182615031\" duration=\"7987000\" />\r\n      <workItem from=\"1755223479045\" duration=\"507000\" />\r\n      <workItem from=\"1755224083990\" duration=\"169000\" />\r\n      <workItem from=\"1755224322113\" duration=\"5340000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ae9e6ce8c910112ef8d075c6655ccb38722b84bc)
++++ b/.idea/workspace.xml	(date 1755500219669)
+@@ -5,14 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-135617-a96b91a9.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -43,8 +36,20 @@
+         </projects_view>
+       </state>
+     </system>
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="JmixLiquibaseChangeLog" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="xuan-viet" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -163,6 +168,7 @@
+       <workItem from="1755223479045" duration="507000" />
+       <workItem from="1755224083990" duration="169000" />
+       <workItem from="1755224322113" duration="5340000" />
++      <workItem from="1755494119756" duration="1081000" />
+     </task>
+     <servers />
+   </component>
+Index: JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-135617-a96b91a9.xml
+===================================================================
+diff --git a/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-135617-a96b91a9.xml b/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-135617-a96b91a9.xml
+new file mode 100644
+--- /dev/null	(date 1755500185028)
++++ b/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-135617-a96b91a9.xml	(date 1755500185028)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<databaseChangeLog
++        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
++        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
++                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
++        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
++    <changeSet id="1" author="JmixDataStore">
++        <addNotNullConstraint columnDataType="VARCHAR(255)" columnName="PASSWORD" tableName="SOURCE_DB"
++                              validate="true"/>
++    </changeSet>
++    <changeSet id="2" author="JmixDataStore">
++        <dropColumn columnName="PORT" tableName="SOURCE_DB"/>
++    </changeSet>
++    <changeSet id="3" author="JmixDataStore">
++        <addColumn tableName="SOURCE_DB">
++            <column name="PORT" type="VARCHAR(255)"/>
++        </addColumn>
++    </changeSet>
++    <changeSet id="4" author="JmixDataStore">
++        <addNotNullConstraint columnDataType="VARCHAR(255)" columnName="USERNAME" tableName="SOURCE_DB"
++                              validate="true"/>
++    </changeSet>
++</databaseChangeLog>
+\ No newline at end of file
