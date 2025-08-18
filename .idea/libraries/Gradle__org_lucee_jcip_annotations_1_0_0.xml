@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lucee:jcip-annotations:1.0.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.lucee" artifactId="jcip-annotations" version="1.0.0" baseVersion="1.0.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lucee/jcip-annotations/1.0.0/ae61631d04820071895117d5d549f4e4efd9e07f/jcip-annotations-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

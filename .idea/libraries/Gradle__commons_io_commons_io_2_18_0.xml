@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: commons-io:commons-io:2.18.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="commons-io" artifactId="commons-io" version="2.18.0" baseVersion="2.18.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.18.0/44084ef756763795b31c578403dd028ff4a22950/commons-io-2.18.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.18.0/e2281d62ae24acd84de1ef7273e70bfb38c75658/commons-io-2.18.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.18.0/9ab23bf96cc41b731cb123fbee97198f901af68e/commons-io-2.18.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-side-nav-flow:24.7.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-side-nav-flow" version="24.7.3" baseVersion="24.7.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-side-nav-flow/24.7.3/e5a7293233657ce0a68b5b8a0bbdc5e37a396ff0/vaadin-side-nav-flow-24.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-side-nav-flow/24.7.3/7686db6d878149a328df9a83e9c1315ca74a9860/vaadin-side-nav-flow-24.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-side-nav-flow/24.7.3/6ece7161594a608a6a5937aada7cce0cc64c0625/vaadin-side-nav-flow-24.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

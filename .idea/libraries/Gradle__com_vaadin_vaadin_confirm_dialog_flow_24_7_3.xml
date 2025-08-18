@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-confirm-dialog-flow:24.7.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-confirm-dialog-flow" version="24.7.3" baseVersion="24.7.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-confirm-dialog-flow/24.7.3/2842f88964da70bff0c85c25e497a67fa10044b/vaadin-confirm-dialog-flow-24.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-confirm-dialog-flow/24.7.3/d1eae81c176ce964aaa177f7ac2a70387f5fd21f/vaadin-confirm-dialog-flow-24.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-confirm-dialog-flow/24.7.3/fdbc95a89eba521ed43a6499f4aa9b9e8ea33834/vaadin-confirm-dialog-flow-24.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

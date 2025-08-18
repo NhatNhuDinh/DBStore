@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.persistence:org.eclipse.persistence.jpa.jpql:4.0.6" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.persistence" artifactId="org.eclipse.persistence.jpa.jpql" version="4.0.6" baseVersion="4.0.6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.jpa.jpql/4.0.6/c98f2adfd45c3f1a805024c46c4a9d96ac9f2635/org.eclipse.persistence.jpa.jpql-4.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.jpa.jpql/4.0.6/f8293e96f5dcccf41a776d5e4bc6017a14f96aaf/org.eclipse.persistence.jpa.jpql-4.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.jpa.jpql/4.0.6/9a717fce2a15dd3ef2ada080e1204b17d8836adb/org.eclipse.persistence.jpa.jpql-4.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

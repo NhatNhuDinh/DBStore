@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-login-flow:24.7.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-login-flow" version="24.7.3" baseVersion="24.7.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-login-flow/24.7.3/42d345a9783c892aee8571408424064781480f90/vaadin-login-flow-24.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-login-flow/24.7.3/1ddb7ec5eb739fc6ae85f6bdcaf3af421f637980/vaadin-login-flow-24.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-login-flow/24.7.3/7c2634d150682e7ed0d9d372ac813e4d3d2f38ed/vaadin-login-flow-24.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

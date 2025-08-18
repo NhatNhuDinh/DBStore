@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.persistence:org.eclipse.persistence.core:4.0.6-2-jmix" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.persistence" artifactId="org.eclipse.persistence.core" version="4.0.6-2-jmix" baseVersion="4.0.6-2-jmix" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.core/4.0.6-2-jmix/db684c56e8b687d87efe5867a1478960a32b6b31/org.eclipse.persistence.core-4.0.6-2-jmix.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.core/4.0.6-2-jmix/bcf6517c2e40642024c4d8fae5291e4bf7272219/org.eclipse.persistence.core-4.0.6-2-jmix-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

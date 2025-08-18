@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:flow-react:24.7.5" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="flow-react" version="24.7.5" baseVersion="24.7.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-react/24.7.5/40a3ffabd17860979b629357a5eb3c1fcc39ed1d/flow-react-24.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-react/24.7.5/35cd98756e59feaea4f69c7f810a01c183e14b7e/flow-react-24.7.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-react/24.7.5/de4b59553ef307a6f7f76f7d36776d2f8dc5a52a/flow-react-24.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

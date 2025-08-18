@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.data:jmix-eclipselink:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.data" artifactId="jmix-eclipselink" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.data/jmix-eclipselink/2.6.1/9cae03afe6575ee9957cc332add97bac56e9ac0a/jmix-eclipselink-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.data/jmix-eclipselink/2.6.1/5237e7ce2325b67b0b766f2a9c9013137e3af325/jmix-eclipselink-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.security:jmix-security-data:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.security" artifactId="jmix-security-data" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.security/jmix-security-data/2.6.1/8b0d8475fefe8071edc91fb49929dc201270d64f/jmix-security-data-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.security/jmix-security-data/2.6.1/709315208fc249746ce3efd2cbb9b6dcfe2f600e/jmix-security-data-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

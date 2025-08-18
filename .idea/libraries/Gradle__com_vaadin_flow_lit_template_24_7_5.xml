@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:flow-lit-template:24.7.5" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="flow-lit-template" version="24.7.5" baseVersion="24.7.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-lit-template/24.7.5/713aeb179db64cf4ffc1385c8835b7d3cb2e2ee/flow-lit-template-24.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-lit-template/24.7.5/e5fcdd979a4f90210717ead7b82923d9f79b0290/flow-lit-template-24.7.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-lit-template/24.7.5/17f0b141d18a34401ff5e2d52fff27c2bed39c65/flow-lit-template-24.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

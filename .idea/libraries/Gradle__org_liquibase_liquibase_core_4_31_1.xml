@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.liquibase:liquibase-core:4.31.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.liquibase" artifactId="liquibase-core" version="4.31.1" baseVersion="4.31.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.liquibase/liquibase-core/4.31.1/7578a1c2842d458c31eddb05c7ac82899af1893f/liquibase-core-4.31.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.liquibase/liquibase-core/4.31.1/96f952166c5030c0d0472c255bfc36d52909f553/liquibase-core-4.31.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.liquibase/liquibase-core/4.31.1/3c6920594050b680743a7eb84f6248dfe4c7c6eb/liquibase-core-4.31.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

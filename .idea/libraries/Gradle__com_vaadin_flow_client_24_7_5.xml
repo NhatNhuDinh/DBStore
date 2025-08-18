@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:flow-client:24.7.5" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="flow-client" version="24.7.5" baseVersion="24.7.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-client/24.7.5/af7fd9e2e9369955796eb3373e89346c70b1ab5e/flow-client-24.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-client/24.7.5/a7acecb7f3d8cd0db03fdcaad0d507b586315e3b/flow-client-24.7.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/flow-client/24.7.5/a62dfbf7948e02ad7dc79199e889092457622215/flow-client-24.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-popover-flow:24.7.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-popover-flow" version="24.7.3" baseVersion="24.7.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-popover-flow/24.7.3/fc570fef741b92a5f01a1e071c4c2de9e89e0c61/vaadin-popover-flow-24.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-popover-flow/24.7.3/30a32a8d0bb3c95b0a085a65efdf345c2838cae2/vaadin-popover-flow-24.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-popover-flow/24.7.3/71794f63de753230ce194eb4e23d7547572be5ad/vaadin-popover-flow-24.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

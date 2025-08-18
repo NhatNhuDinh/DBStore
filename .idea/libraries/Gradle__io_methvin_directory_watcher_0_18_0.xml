@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: io.methvin:directory-watcher:0.18.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.methvin" artifactId="directory-watcher" version="0.18.0" baseVersion="0.18.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.methvin/directory-watcher/0.18.0/516117adce1b3c41b2d7a086f38b2fb36cc9f2cf/directory-watcher-0.18.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.methvin/directory-watcher/0.18.0/2dd9b62a0e5c87f8c831196acbc545ae172e5dc3/directory-watcher-0.18.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.methvin/directory-watcher/0.18.0/9991dd2d58c93b7ae51fda1d9f36e7a6a293f7fc/directory-watcher-0.18.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

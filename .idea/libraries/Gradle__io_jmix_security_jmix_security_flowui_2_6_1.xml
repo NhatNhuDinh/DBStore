@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.security:jmix-security-flowui:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.security" artifactId="jmix-security-flowui" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.security/jmix-security-flowui/2.6.1/ac256f9d0e8018a127c318ce08aa45f9a5bbe78c/jmix-security-flowui-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.security/jmix-security-flowui/2.6.1/2faa15e2ff9d773cbf8d278a20491c28b469bd2a/jmix-security-flowui-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

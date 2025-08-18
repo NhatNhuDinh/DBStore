@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,17 @@
         <task path="$PROJECT_DIR$/JmixDataStore">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="JmixDataStore" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -62,6 +74,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build JmixDataStore.executor": "Run",
+    "Gradle.JmixDataStore [assemble].executor": "Run",
+    "Jmix Application.JmixDataStore Jmix Application.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -86,12 +100,32 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "sqlserver",
-      "postgresql"
+      "postgresql",
+      "sqlserver"
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jmix Application.JmixDataStore Jmix Application">
+    <configuration name="JmixDataStore Jmix Application" type="JmixRunApplication">
+      <option name="MAIN_CLASS_NAME" value="com.company.jmixdatastore.JmixDataStoreApplication" />
+      <module name="JmixDataStore.main" />
+      <shortenClasspath name="ARGS_FILE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/JmixDataStore" />
+      <method v="2">
+        <option name="JmixCleanConf" enabled="false" />
+        <option name="JmixCheckIncludes" enabled="false" />
+        <option name="JmixSyncDb" enabled="false" />
+        <option name="JmixAssemble" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JmixRunApplication">
+      <method v="2">
+        <option name="JmixCleanConf" enabled="false" />
+        <option name="JmixCheckIncludes" enabled="false" />
+        <option name="JmixSyncDb" enabled="false" />
+        <option name="JmixAssemble" enabled="false" />
+      </method>
+    </configuration>
     <configuration name="JmixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="JmixDataStore.main" />
       <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
@@ -128,31 +162,11 @@
       <workItem from="1755182615031" duration="7987000" />
       <workItem from="1755223479045" duration="507000" />
       <workItem from="1755224083990" duration="169000" />
+      <workItem from="1755224322113" duration="5340000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/DbConnectImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

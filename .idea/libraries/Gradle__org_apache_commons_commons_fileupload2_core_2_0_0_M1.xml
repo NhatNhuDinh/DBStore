@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.commons:commons-fileupload2-core:2.0.0-M1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.apache.commons" artifactId="commons-fileupload2-core" version="2.0.0-M1" baseVersion="2.0.0-M1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-fileupload2-core/2.0.0-M1/6c262ddf7fb1c99c24a3fbea817065a9146c52c0/commons-fileupload2-core-2.0.0-M1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-fileupload2-core/2.0.0-M1/9954cf86b59bea0168d2a5f63b1cdcb6aa3f8c6a/commons-fileupload2-core-2.0.0-M1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-fileupload2-core/2.0.0-M1/f7a39e9c3903b6dde3128d21901c2be2a5b13ff7/commons-fileupload2-core-2.0.0-M1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

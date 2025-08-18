@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin.external:gentyref:1.2.0.vaadin1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin.external" artifactId="gentyref" version="1.2.0.vaadin1" baseVersion="1.2.0.vaadin1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external/gentyref/1.2.0.vaadin1/c914574fdf1d7c7b85f58965d10f7a83811bb7c6/gentyref-1.2.0.vaadin1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external/gentyref/1.2.0.vaadin1/572c270075e24bab1cb4c428bd11e9bcc803227b/gentyref-1.2.0.vaadin1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external/gentyref/1.2.0.vaadin1/4a158611168f9cfa33e8ac944fae490d12917404/gentyref-1.2.0.vaadin1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

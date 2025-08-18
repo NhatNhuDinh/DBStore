@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-custom-field-flow:24.7.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-custom-field-flow" version="24.7.3" baseVersion="24.7.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-custom-field-flow/24.7.3/6f0b56797fb6e5f162695fe669275d4e471b44c8/vaadin-custom-field-flow-24.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-custom-field-flow/24.7.3/56fa13497c846c8ab691d4289104e34d87690186/vaadin-custom-field-flow-24.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-custom-field-flow/24.7.3/643ea512a2ac677a82371bb1de237e042e3ebbee/vaadin-custom-field-flow-24.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

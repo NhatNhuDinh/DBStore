@@ -35,6 +35,7 @@ public class DbManagementView extends StandardView {
     @Autowired
     private DbConnect dbConnect;
 
+
     @ViewComponent
     private EntityComboBox<SourceDb> dbSourseComboBox;
 

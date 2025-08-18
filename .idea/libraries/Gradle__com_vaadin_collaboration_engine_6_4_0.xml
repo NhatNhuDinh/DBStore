@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:collaboration-engine:6.4.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="collaboration-engine" version="6.4.0" baseVersion="6.4.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/collaboration-engine/6.4.0/dcd584686520ae443f46b12f38f8928c3b5a8bb6/collaboration-engine-6.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/collaboration-engine/6.4.0/ef4064798a8943cb0642df08e478a818584715b/collaboration-engine-6.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/collaboration-engine/6.4.0/be7f737fdbe437abd799399fdaa157ca46e44af1/collaboration-engine-6.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

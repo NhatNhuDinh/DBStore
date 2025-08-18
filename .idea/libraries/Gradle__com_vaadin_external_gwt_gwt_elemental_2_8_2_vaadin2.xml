@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin.external.gwt:gwt-elemental:2.8.2.vaadin2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin.external.gwt" artifactId="gwt-elemental" version="2.8.2.vaadin2" baseVersion="2.8.2.vaadin2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external.gwt/gwt-elemental/2.8.2.vaadin2/abdfd4fcfbc0652298061be8c70a56a6d6e868b2/gwt-elemental-2.8.2.vaadin2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external.gwt/gwt-elemental/2.8.2.vaadin2/c6861b1d450bacd80307e093c5e0916e8428e6b8/gwt-elemental-2.8.2.vaadin2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.external.gwt/gwt-elemental/2.8.2.vaadin2/47ae4b424710dd7b04fe6f046683786420ae9be3/gwt-elemental-2.8.2.vaadin2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

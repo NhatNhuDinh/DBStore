@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.data:jmix-data-autoconfigure:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.data" artifactId="jmix-data-autoconfigure" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.data/jmix-data-autoconfigure/2.6.1/678935f5cf6e4700e8b4777c02f1606026d22b9c/jmix-data-autoconfigure-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.data/jmix-data-autoconfigure/2.6.1/50ae05aea63f5f9a75e139d6c64a6f8ff94f83ca/jmix-data-autoconfigure-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

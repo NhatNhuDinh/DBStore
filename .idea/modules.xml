@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DBStore.iml" filepath="$PROJECT_DIR$/.idea/DBStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" filepath="$PROJECT_DIR$/.idea/modules/JmixDataStore.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JmixDataStore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JmixDataStore.test.iml" />
     </modules>
   </component>
 </project>

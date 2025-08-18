@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.persistence:org.eclipse.persistence.extension:4.0.6" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.persistence" artifactId="org.eclipse.persistence.extension" version="4.0.6" baseVersion="4.0.6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.extension/4.0.6/15ac9ea8a9dfe17f725036a90d4efea759b2a234/org.eclipse.persistence.extension-4.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.extension/4.0.6/ea090582ad1f0a5abd9ea2d73414af5ad261b41b/org.eclipse.persistence.extension-4.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.extension/4.0.6/11269cd614edf0c25ecd81c3a57fb83934e790c3/org.eclipse.persistence.extension-4.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.localfs:jmix-localfs:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.localfs" artifactId="jmix-localfs" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.localfs/jmix-localfs/2.6.1/7ab17a590db97db0ed8f0d1c87334fb709244d5a/jmix-localfs-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.localfs/jmix-localfs/2.6.1/2c614f4072d8991c0c54f8f94460465eaee01b94/jmix-localfs-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

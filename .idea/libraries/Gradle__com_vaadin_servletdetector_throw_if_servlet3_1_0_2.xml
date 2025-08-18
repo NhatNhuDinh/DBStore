@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin.servletdetector:throw-if-servlet3:1.0.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin.servletdetector" artifactId="throw-if-servlet3" version="1.0.2" baseVersion="1.0.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.servletdetector/throw-if-servlet3/1.0.2/29d2e1daed2f3df2e233d6685a52cc888d2519bf/throw-if-servlet3-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.servletdetector/throw-if-servlet3/1.0.2/a5ed7945a81dc3e2fa7bfaaa3ea5b2c794c74c93/throw-if-servlet3-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin.servletdetector/throw-if-servlet3/1.0.2/65d12830f58b84ac66f242851e067a5064623b0f/throw-if-servlet3-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

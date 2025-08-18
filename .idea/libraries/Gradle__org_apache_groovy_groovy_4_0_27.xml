@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.groovy:groovy:4.0.27" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.apache.groovy" artifactId="groovy" version="4.0.27" baseVersion="4.0.27" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.groovy/groovy/4.0.27/c7707e8e3ea0defe398d42ab844a57f5a368c80d/groovy-4.0.27.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.groovy/groovy/4.0.27/aa95f39930dde8c48513e2986ae76c48efac699c/groovy-4.0.27-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.groovy/groovy/4.0.27/fa52d75806a153a227dd2b649ac628427e942deb/groovy-4.0.27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

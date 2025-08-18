@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.flowui:jmix-flowui-test-assist:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.flowui" artifactId="jmix-flowui-test-assist" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.flowui/jmix-flowui-test-assist/2.6.1/f372e2547e7b02285d71009f346332485ad540b0/jmix-flowui-test-assist-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.flowui/jmix-flowui-test-assist/2.6.1/7f518450fe013a91c73208570b333f8604fc2a3b/jmix-flowui-test-assist-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

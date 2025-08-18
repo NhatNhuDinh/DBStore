@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.core:jmix-core:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.core" artifactId="jmix-core" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.core/jmix-core/2.6.1/c9a06e67f64c338c4527d025e04167fdb14ef3bb/jmix-core-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.core/jmix-core/2.6.1/80799b75daa2cde0d39865faedaa282e56cabdb6/jmix-core-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jsoup:jsoup:1.18.3" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.jsoup" artifactId="jsoup" version="1.18.3" baseVersion="1.18.3" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.18.3/fb42d6cc9898ced4b73175eac49c61a40f35325/jsoup-1.18.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.18.3/a3e233a2a0ea2cd8b2726d436913b00e98c6d0ad/jsoup-1.18.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.18.3/927a6ffab2e17cf470c98b999e09eb4754190323/jsoup-1.18.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

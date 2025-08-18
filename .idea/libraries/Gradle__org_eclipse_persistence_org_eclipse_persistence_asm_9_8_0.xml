@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.persistence:org.eclipse.persistence.asm:9.8.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.persistence" artifactId="org.eclipse.persistence.asm" version="9.8.0" baseVersion="9.8.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.asm/9.8.0/af14de267983902410b524a6f2eaaf2f406c46c3/org.eclipse.persistence.asm-9.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.asm/9.8.0/f4fa54bb4903fa5a0a153c45cfa4b2cc485776c5/org.eclipse.persistence.asm-9.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/org.eclipse.persistence.asm/9.8.0/d4f6ef70a800f1967114c5959c7675db85fd8e73/org.eclipse.persistence.asm-9.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

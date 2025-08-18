@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.jmix.flowui:jmix-flowui-starter:2.6.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.jmix.flowui" artifactId="jmix-flowui-starter" version="2.6.1" baseVersion="2.6.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.flowui/jmix-flowui-starter/2.6.1/be35340db3f85f689b72234744e6451f57061105/jmix-flowui-starter-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jmix.flowui/jmix-flowui-starter/2.6.1/58867832f3f9e46670385ae1705f8baf8697c584/jmix-flowui-starter-2.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

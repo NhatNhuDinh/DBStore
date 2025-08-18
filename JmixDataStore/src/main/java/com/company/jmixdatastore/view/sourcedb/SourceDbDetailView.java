@@ -1,10 +1,13 @@
 package com.company.jmixdatastore.view.sourcedb;
 
+import com.company.jmixdatastore.entity.DBType;
 import com.company.jmixdatastore.entity.SourceDb;
 import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.view.main.MainView;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.Notifications;
 import io.jmix.flowui.view.*;
@@ -22,6 +25,138 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
     @Autowired
     private Notifications notifications;
 
+    @ViewComponent
+    private TextField urlField;
+
+    @ViewComponent
+    private TextField hostField;
+
+    @ViewComponent
+    private TextField portField;
+
+    @ViewComponent
+    private TextField dbnameField;
+
+    @ViewComponent
+    private ComboBox<DBType> dbtypeField;
+
+    // Biến này để ngăn không cho 2 chiều tự động update lẫn nhau gây loop vô tận
+    private boolean isInternalChange = false;
+
+    /**
+     * Build URL khi user thay đổi host, port, dbname, dbtype
+     */
+    private void buildUrlFromFields() {
+        if (isInternalChange) return;
+        isInternalChange = true;
+        try {
+            DBType dbtype = dbtypeField.getValue();
+            String host = safeStr(hostField.getValue());
+            String port = safeStr(portField.getValue());
+            String dbname = safeStr(dbnameField.getValue());
+            String url = "";
+
+            if (dbtype == null || host.isBlank() || port.isBlank() || dbname.isBlank()) {
+                urlField.setValue("");
+                return;
+            }
+            switch (dbtype) {
+                case MYSQL:
+                    url = String.format("jdbc:mysql://%s:%s/%s", host, port, dbname);
+                    break;
+                case POSTGRESQL:
+                    url = String.format("jdbc:postgresql://%s:%s/%s", host, port, dbname);
+                    break;
+                case SQLSERVER:
+                    url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s", host, port, dbname);
+                    break;
+            }
+            urlField.setValue(url);
+        } finally {
+            isInternalChange = false;
+        }
+    }
+
+    /**
+     * Parse URL khi user nhập hoặc paste URL vào
+     */
+    private void parseUrlToFields() {
+        if (isInternalChange) return;
+        isInternalChange = true;
+        try {
+            String url = safeStr(urlField.getValue());
+            if (url.isBlank()) return;
+
+            if (url.startsWith("jdbc:mysql://")) {
+                dbtypeField.setValue(DBType.MYSQL);
+                String s = url.substring("jdbc:mysql://".length());
+                String[] main = s.split("/", 2);
+                String[] hostPort = main[0].split(":");
+                hostField.setValue(hostPort[0]);
+                portField.setValue(hostPort.length > 1 ? hostPort[1] : "3306");
+                dbnameField.setValue(main.length > 1 ? main[1].split("[?;]")[0] : "");
+            } else if (url.startsWith("jdbc:postgresql://")) {
+                dbtypeField.setValue(DBType.POSTGRESQL);
+                String s = url.substring("jdbc:postgresql://".length());
+                String[] main = s.split("/", 2);
+                String[] hostPort = main[0].split(":");
+                hostField.setValue(hostPort[0]);
+                portField.setValue(hostPort.length > 1 ? hostPort[1] : "5432");
+                dbnameField.setValue(main.length > 1 ? main[1].split("[?;]")[0] : "");
+            } else if (url.startsWith("jdbc:sqlserver://")) {
+                dbtypeField.setValue(DBType.SQLSERVER);
+                String s = url.substring("jdbc:sqlserver://".length());
+                String[] main = s.split(";", 2);
+                String[] hostPort = main[0].split(":");
+                hostField.setValue(hostPort[0]);
+                portField.setValue(hostPort.length > 1 ? hostPort[1] : "1433");
+                String dbName = "";
+                if (main.length > 1) {
+                    for (String param : main[1].split(";")) {
+                        if (param.startsWith("databaseName=")) {
+                            dbName = param.substring("databaseName=".length());
+                        }
+                        else if (param.startsWith("database=")) {
+                            dbName = param.substring("database=".length());
+                        }
+                    }
+                }
+                dbnameField.setValue(dbName);
+            }
+        } finally {
+            isInternalChange = false;
+        }
+    }
+
+    private String safeStr(String s) {
+        return s == null ? "" : s.trim();
+    }
+
+    @Subscribe("hostField")
+    public void onHostChange(TextField.ComponentValueChangeEvent<TextField, String> event) {
+        buildUrlFromFields();
+    }
+
+    @Subscribe("portField")
+    public void onPortChange(TextField.ComponentValueChangeEvent<TextField, String> event) {
+        buildUrlFromFields();
+    }
+
+    @Subscribe("dbnameField")
+    public void onDbnameChange(TextField.ComponentValueChangeEvent<TextField, String> event) {
+        buildUrlFromFields();
+    }
+
+    @Subscribe("dbtypeField")
+    public void onDbtypeChange(ComboBox.ComponentValueChangeEvent<ComboBox<DBType>, DBType> event) {
+        buildUrlFromFields();
+    }
+
+    @Subscribe("urlField")
+    public void onUrlChange(TextField.ComponentValueChangeEvent<TextField, String> event) {
+        parseUrlToFields();
+    }
+
     @Subscribe(id = "detailActions", subject = "clickListener")
     public void onDetailActionsClick(final ClickEvent<HorizontalLayout> event) {
         SourceDb currentSourceDb = getEditedEntity();
@@ -37,6 +172,4 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
                     .show();
         }
     }
-
-
 }

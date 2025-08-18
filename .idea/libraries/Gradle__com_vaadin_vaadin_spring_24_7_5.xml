@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-spring:24.7.5" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="vaadin-spring" version="24.7.5" baseVersion="24.7.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-spring/24.7.5/7e6fd38b90ec11f020b9ed0cbfc08defca288725/vaadin-spring-24.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-spring/24.7.5/292d525f9544aebf37a307aa9336aa3ac408f802/vaadin-spring-24.7.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-spring/24.7.5/c1aabe159ce80a0dd0b2b5ceeaf3154e8adfa895/vaadin-spring-24.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

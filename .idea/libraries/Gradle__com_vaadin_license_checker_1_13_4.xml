@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:license-checker:1.13.4" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.vaadin" artifactId="license-checker" version="1.13.4" baseVersion="1.13.4" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/license-checker/1.13.4/170853a6c5b48c736dbd4464cf7c1c4f3704fe7/license-checker-1.13.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/license-checker/1.13.4/71ef47d0432c9c1f04d4796f941fd9fae33bcdd6/license-checker-1.13.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/license-checker/1.13.4/83bcd88723ce9334e42045c2fbe6915dc18770d5/license-checker-1.13.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
