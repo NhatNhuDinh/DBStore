@@ -24,7 +24,7 @@
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
             <textField id="nameField" property="name"/>
-            <select id="dbtypeField" property="dbtype" label="DB Type"/>
+            <comboBox id="dbtypeField" property="dbtype" label="DB Type"/>
             <textField id="urlField" property="url"/>
             <textField id="portField" property="port"/>
             <textField id="usernameField" property="username"/>
@@ -32,6 +32,7 @@
             <textField id="dbnameField" property="dbname"/>
             <textField id="hostField" property="host"/>
         </formLayout>
+
         <hbox id="detailActions">
             <button id="test_connection" text="Connect"/>
             <button id="saveAndCloseButton" action="saveAction"/>

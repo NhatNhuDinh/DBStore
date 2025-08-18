@@ -34,10 +34,12 @@ public class SourceDb {
     @Column(name = "PORT")
     private String port;
 
-    @Column(name = "USERNAME")
+    @NotNull(message = "Username can not be blank !!")
+    @Column(name = "USERNAME", nullable = false)
     private String username;
 
-    @Column(name = "PASSWORD")
+    @NotNull(message = "Password can not be blank !!")
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
 
     @Column(name = "DBNAME")

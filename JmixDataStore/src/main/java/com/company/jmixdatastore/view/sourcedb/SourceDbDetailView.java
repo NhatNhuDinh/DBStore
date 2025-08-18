@@ -62,17 +62,11 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
                 urlField.setValue("");
                 return;
             }
-            switch (dbtype) {
-                case MYSQL:
-                    url = String.format("jdbc:mysql://%s:%s/%s", host, port, dbname);
-                    break;
-                case POSTGRESQL:
-                    url = String.format("jdbc:postgresql://%s:%s/%s", host, port, dbname);
-                    break;
-                case SQLSERVER:
-                    url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s", host, port, dbname);
-                    break;
-            }
+            url = switch (dbtype) {
+                case MYSQL -> String.format("jdbc:mysql://%s:%s/%s", host, port, dbname);
+                case POSTGRESQL -> String.format("jdbc:postgresql://%s:%s/%s", host, port, dbname);
+                case SQLSERVER -> String.format("jdbc:sqlserver://%s:%s;databaseName=%s", host, port, dbname);
+            };
             urlField.setValue(url);
         } finally {
             isInternalChange = false;
