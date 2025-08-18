@@ -24,7 +24,7 @@
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
             <textField id="nameField" property="name"/>
-            <comboBox id="dbtypeField" property="dbtype" label="DB Type"/>
+            <comboBox id="dbtypeField" property="dbtype" label="DB Type" title="Chọn DB"/>
             <textField id="urlField" property="url"/>
             <textField id="portField" property="port"/>
             <textField id="usernameField" property="username"/>

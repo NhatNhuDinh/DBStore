@@ -6,7 +6,9 @@ import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.service.dbcon.DbConnectFactory;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
+import com.vaadin.flow.component.AbstractField;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.listbox.ListBox;
 import com.vaadin.flow.component.notification.Notification;
@@ -74,7 +76,7 @@ public class DbManagementView extends StandardView {
                 .newEntity()
                 .withAfterCloseListener(closeEvent -> {
                     if (closeEvent.closedWith(StandardOutcome.SAVE)) {
-                        // Set the newly created entity in the combo box
+                        sourceDbsDl.load();
                         SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
                         SourceDb entity = sourceDbDetailView.getEditedEntity();
                         dbSourseComboBox.setValue(entity);
@@ -86,14 +88,44 @@ public class DbManagementView extends StandardView {
 
     }
 
-    @Subscribe(id = "connectButton", subject = "clickListener")
-    public void onConnectButtonClick(final ClickEvent<JmixButton> event) {
+    @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
+    public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
         SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+        fieldsDc.getMutableItems().clear();
+        KeyValueEntity selectedTable = event.getItem();
+        if (selectedTable == null) {
+            fieldCount.setText("Tổng số cột: 0");
+            return;
+        }
+
+        String tableName = selectedTable.getValue("name");
+        notifications.create("Selected table " + tableName )
+                .withType(Notifications.Type.SUCCESS)
+                .withPosition(Notification.Position.TOP_END)
+                .show();
+        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+        List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
+        fieldsDc.setItems(fieldList);
+        fieldCount.setText("Tổng số cột: " + fieldList.size());
+    }
+
+    @Subscribe("dbSourseComboBox")
+    public void onDbSourseComboBoxComponentValueChange(final AbstractField.ComponentValueChangeEvent<EntityComboBox<SourceDb>, SourceDb> event) {
+        SourceDb selectedSourceDb = event.getValue();
+        if (selectedSourceDb == null) {
+            tablesDc.setItems(List.of());
+            fieldsDc.setItems(List.of());
+            tableCount.setText("Tổng số bảng: 0");
+            fieldCount.setText("Tổng số cột: 0");
+            connectionStatus.setText("Trạng thái: Chưa kết nối");
+            return;
+        }
+
         DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
         List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
-        tablesDc.getMutableItems().clear();
+        fieldsDc.getMutableItems().clear();
         List<KeyValueEntity> tableEntities = new ArrayList<>();
-        for(String tableName : tableList) {
+        for (String tableName : tableList) {
             KeyValueEntity newTable = dataManager.create(KeyValueEntity.class);
             newTable.setValue("name", tableName);
             newTable.setValue("description", "Table: " + tableName);
@@ -104,21 +136,6 @@ public class DbManagementView extends StandardView {
         fieldsDc.setItems(List.of());
         fieldCount.setText("Tổng số cột: 0");
         connectionStatus.setText("Trạng thái: Đã kết nối");
-    }
-
-    @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
-    public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
-        SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-        fieldsDc.getMutableItems().clear();
-        String tableName = event.getItem().getValue("name");
-        notifications.create("Selected table " + tableName )
-                .withType(Notifications.Type.SUCCESS)
-                .withPosition(Notification.Position.TOP_END)
-                .show();
-        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-        List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
-        fieldsDc.setItems(fieldList);
-        fieldCount.setText("Tổng số cột: " + fieldList.size());
     }
 
 }

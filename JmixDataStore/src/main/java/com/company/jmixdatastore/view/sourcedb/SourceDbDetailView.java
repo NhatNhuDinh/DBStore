@@ -154,7 +154,7 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
     }
 
 
-    @Subscribe(id = "detailActions", subject = "clickListener")
+    @Subscribe(id = "test_connection", subject = "clickListener")
     public void onDetailActionsClick(final ClickEvent<HorizontalLayout> event) {
         SourceDb currentSourceDb = getEditedEntity();
         DbConnect dbConnect = dbConnectFactory.get(currentSourceDb);

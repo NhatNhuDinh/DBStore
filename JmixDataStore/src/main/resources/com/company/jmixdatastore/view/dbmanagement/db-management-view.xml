@@ -43,9 +43,9 @@
             <entityComboBox id="dbSourseComboBox"
                             itemsContainer="sourceDbsDc"
                             metaClass="SourceDb"
-                            width="300px"/>
+                            width="300px"
+                            placeholder="Chọn database"/>
             <button id="newButton" text="Tạo mới"/>
-            <button id="connectButton" text="Kết nối"/>
         </hbox>
 
         <!-- Main Content Area -->

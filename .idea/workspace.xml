@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343d8ded-6a34-438d-a028-363633fb8055" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/dbconnect/impl/SqlServerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/service/dbcon/impl/SqlServerConnect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/liquibase/changelog/2025/08/18-141827-a96b91a9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/dbconnect/impl/MySQLAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/dbconnect/impl/MySQLAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/dbconnect/impl/PostgresAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/dbconnect/impl/PostgresAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/entity/SourceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/dbmanagement/DbManagementView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/java/com/company/jmixdatastore/view/sourcedb/SourceDbDetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/dbmanagement/db-management-view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JmixDataStore/src/main/resources/com/company/jmixdatastore/view/sourcedb/source-db-detail-view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +97,7 @@
     "Spring Boot.JmixDataStoreApplication.executor": "Debug",
     "com.haulmont.jmixstudio.ai.ui.toolwindow.JmixAiToolWindowInitializer.firstProjectStart": "false",
     "com.haulmont.jmixstudio.intellij.ui.cubatree.toolwindow.ToolWindowOpener.firstProjectStart": "false",
-    "git-widget-placeholder": "nhat",
+    "git-widget-placeholder": "main-2",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "D:/OJT/DBStore",
@@ -114,8 +110,9 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "sqlserver",
-      "postgresql"
+      "mysql",
+      "postgresql",
+      "sqlserver"
     ]
   }
 }]]></component>
