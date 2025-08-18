@@ -15,8 +15,12 @@ public class MySQLAdapter implements DbDriverAdapter {
 
     @Override
     public String buildJdbcUrl(SourceDb sourceDb) {
-        return String.format("jdbc:mysql://%s:%d/%s?useSSL=false&serverTimezone=UTC&nullCatalogMeansCurrent=true&useInformationSchema=true",
-                sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+        if (sourceDb.getUrl() != null && !sourceDb.getUrl().trim().isEmpty()) {
+            return sourceDb.getUrl();
+        } else {
+            return String.format("jdbc:mysql://%s:%d/%s?useSSL=false&serverTimezone=UTC&nullCatalogMeansCurrent=true&useInformationSchema=true",
+                    sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+        }
     }
 
     @Override

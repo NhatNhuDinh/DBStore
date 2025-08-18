@@ -14,8 +14,13 @@ public class PostgresAdapter implements DbDriverAdapter {
 
     @Override
     public String buildJdbcUrl(SourceDb sourceDb) {
-        return String.format("jdbc:postgresql://%s:%d/%s",
-                sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+        if (sourceDb.getUrl() != null && !sourceDb.getUrl().trim().isEmpty()) {
+            return sourceDb.getUrl();
+        } else {
+            return String.format("jdbc:postgresql://%s:%d/%s",
+                    sourceDb.getHost(), sourceDb.getPort(), sourceDb.getDbname());
+        }
+
     }
 
     @Override
