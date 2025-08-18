@@ -7,9 +7,11 @@ import com.company.jmixdatastore.service.dbcon.DbConnectFactory;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.listbox.ListBox;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
+import io.jmix.core.DataManager;
 import io.jmix.core.entity.KeyValueEntity;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.Notifications;
@@ -32,6 +34,8 @@ import java.util.Map;
 public class DbManagementView extends StandardView {
 
     @Autowired
+    protected DataManager dataManager;
+    @Autowired
     private DialogWindows dialogWindows;
 
     @Autowired
@@ -45,6 +49,15 @@ public class DbManagementView extends StandardView {
 
     @ViewComponent
     private BoxLayout rightbox;
+
+    @ViewComponent
+    private Span tableCount;
+
+    @ViewComponent
+    private Span fieldCount;
+
+    @ViewComponent
+    private Span connectionStatus;
 
     @ViewComponent
     private KeyValueCollectionContainer tablesDc;
@@ -61,11 +74,10 @@ public class DbManagementView extends StandardView {
                 .newEntity()
                 .withAfterCloseListener(closeEvent -> {
                     if (closeEvent.closedWith(StandardOutcome.SAVE)) {
-                        sourceDbsDl.load();
-                       // Set the newly created entity in the combo box
-                      SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
-                      SourceDb entity = sourceDbDetailView.getEditedEntity();
-                      dbSourseComboBox.setValue(entity);
+                        // Set the newly created entity in the combo box
+                        SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
+                        SourceDb entity = sourceDbDetailView.getEditedEntity();
+                        dbSourseComboBox.setValue(entity);
                     }
 
                 })
@@ -82,15 +94,17 @@ public class DbManagementView extends StandardView {
         tablesDc.getMutableItems().clear();
         List<KeyValueEntity> tableEntities = new ArrayList<>();
         for(String tableName : tableList) {
-            KeyValueEntity newTable = new KeyValueEntity();
+            KeyValueEntity newTable = dataManager.create(KeyValueEntity.class);
             newTable.setValue("name", tableName);
             newTable.setValue("description", "Table: " + tableName);
             tableEntities.add(newTable);
         }
         tablesDc.setItems(tableEntities);
-
+        tableCount.setText("Tổng số bảng: " + tableEntities.size());
+        fieldsDc.setItems(List.of());
+        fieldCount.setText("Tổng số cột: 0");
+        connectionStatus.setText("Trạng thái: Đã kết nối");
     }
-
 
     @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
     public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
@@ -104,7 +118,7 @@ public class DbManagementView extends StandardView {
         DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
         List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
         fieldsDc.setItems(fieldList);
-
+        fieldCount.setText("Tổng số cột: " + fieldList.size());
     }
 
 }
