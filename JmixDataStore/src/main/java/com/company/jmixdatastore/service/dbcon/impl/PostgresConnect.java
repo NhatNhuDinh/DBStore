@@ -15,9 +15,7 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class PostgresConnect implements DbConnect {
@@ -49,23 +47,66 @@ public class PostgresConnect implements DbConnect {
                 tables.add(rs.getString("TABLE_NAME"));
             }
 
-            List<TableDb> tableDbList = tables.stream().map(tableName ->{
-                TableDb tableDb = dataManager.create(TableDb.class);
-                tableDb.setName(tableName);
-                tableDb.setSourceDb(sourceDb);
-                tableDb.setStatus(Status.SYNCED);
-                tableDb.setDescription("Table: " + tableName);
-                return tableDb;
-            }).toList();
+            List<TableDb> existing = dataManager.load(TableDb.class)
+                    .query("select t from TableDb t where t.sourceDb.id = :srcId")
+                    .parameter("srcId", sourceDb.getId())
+                    .list();
 
-            dataManager.saveAll(tableDbList);
-
-            return tableDbList;
+            if (existing.isEmpty()) {
+                existing = tables.stream().map(tableName -> {
+                    TableDb tableDb = dataManager.create(TableDb.class);
+                    tableDb.setName(tableName);
+                    tableDb.setSourceDb(sourceDb);
+                    tableDb.setStatus(Status.SYNCED);
+                    tableDb.setDescription("Table: " + tableName);
+                    return tableDb;
+                }).toList();
+            } else {
+                updateTableDb(tables, existing);
+            }
+            dataManager.saveAll(existing);
+            return existing;
         } catch (SQLException e) {
             e.printStackTrace();
             return Collections.emptyList();
         }
     }
+
+
+    private List<TableDb> updateTableDb(List<String> tableName, List<TableDb> tableDbList) {
+
+        // Tạo map để kiểm tra sự tồn tại của tên bảng
+        Map<String, TableDb> existByName = new LinkedHashMap<>();
+        for (TableDb t : tableDbList) {
+            if (t.getName() != null) {
+                existByName.put(t.getName().toLowerCase(), t);
+            }
+        }
+
+        // Trường hợp có thêm bảng mới
+        for (String name : tableName) {
+            String key = name.toLowerCase();
+            TableDb tableDb = existByName.get(key);
+            if (tableDb == null) {
+                tableDb = dataManager.create(TableDb.class);
+                tableDb.setName(name);
+                tableDb.setSourceDb(tableDbList.getFirst().getSourceDb()); // Giả sử tất cả bảng đều thuộc cùng một SourceDb
+                tableDb.setStatus(Status.NEW);
+                tableDb.setDescription("Table: " + name);
+                tableDbList.add(tableDb);
+            }
+            // Xóa đi nhưng cái nào đã duyệt qua ở remote
+            existByName.remove(key);
+        }
+
+        // Những cái nào còn lại thì đánh dấu là deleted
+        for (TableDb orphan : existByName.values()) {
+            TableDb tableDb = tableDbList.get(tableDbList.indexOf(orphan));
+            tableDb.setStatus(Status.DELETED);
+        }
+        return tableDbList;
+    }
+
 
     @Override
     public List<KeyValueEntity> loadTableFields(SourceDb sourceDb, String tableName) {
