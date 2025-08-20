@@ -51,6 +51,8 @@ public class DbManagementView extends StandardView {
     @Autowired
     private Notifications notifications;
 
+    private boolean isOnline = false;
+
     @Subscribe(id = "newButton", subject = "clickListener")
     public void onNewButtonClick(final ClickEvent<JmixButton> event) {
         dialogWindows.detail(this, SourceDb.class)
@@ -77,19 +79,31 @@ public class DbManagementView extends StandardView {
             return;
         }
         DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+        isOnline = dbConnect.connect(selectedSourceDb);
 
-        // load danh sách bảng từ DB nguồn
-        List<TableDb> tableList = dbConnect.loadTableList(selectedSourceDb);
-
-        // reset UI
         tableDbsDc.getMutableItems().clear();
         tableDetailsDc.getMutableItems().clear();
 
-        // đổ vào container
-        tableDbsDc.setItems(tableList);
+        if (isOnline) {
+            notifications.create("Kết nối thành công! Bắt đầu đồng bộ dữ liệu")
+                    .withType(Notifications.Type.SUCCESS)
+                    .withPosition(Notification.Position.TOP_END)
+                    .show();
+            List<TableDb> tableList = dbConnect.loadTableList(selectedSourceDb);
+            tableDbsDc.setItems(tableList);
+        } else {
+            notifications.create("Kết nối thất bại! Đang ở trạng thái offline")
+                    .withType(Notifications.Type.ERROR)
+                    .withPosition(Notification.Position.TOP_END)
+                    .show();
+            List<TableDb> localTables = dataManager.load(TableDb.class)
+                    .query("select e from TableDb e where e.sourceDb = :sourceDb")
+                    .parameter("sourceDb", selectedSourceDb)
+                    .list();
+            tableDbsDc.setItems(localTables);
+        }
     }
 
-    // ✅ ĐÚNG ID container + đúng generic entity
     @Subscribe(id = "tableDbsDc", target = Target.DATA_CONTAINER)
     public void onTableDbsDcItemChange(final CollectionContainer.ItemChangeEvent<TableDb> event) {
         TableDb selectedTable = event.getItem();
@@ -97,18 +111,23 @@ public class DbManagementView extends StandardView {
 
         if (selectedTable != null) {
             SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-            DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
 
             notifications.create("Selected table " + selectedTable.getName())
                     .withType(Notifications.Type.SUCCESS)
                     .withPosition(Notification.Position.TOP_END)
                     .show();
 
-            // tải danh sách cột theo table đã chọn
-//            List<TableDetail> fieldList =
-//                    dbConnect.loadTableFields(selectedSourceDb, selectedTable.getName());
-//
-//            tableDetailsDc.setItems(fieldList);
+            List<TableDetail> fieldList;
+            if (isOnline) {
+                DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+                fieldList = dbConnect.loadTableFields(selectedSourceDb, selectedTable.getName(), selectedTable);
+            } else {
+                fieldList = dataManager.load(TableDetail.class)
+                        .query("select e from TableDetail e where e.tableDb.id = :tableDbId")
+                        .parameter("tableDbId", selectedTable.getId())
+                        .list();
+            }
+            tableDetailsDc.setItems(fieldList);
         }
     }
 }

@@ -1,9 +1,6 @@
 package com.company.jmixdatastore.service.dbcon.impl;
 
-import com.company.jmixdatastore.entity.DBType;
-import com.company.jmixdatastore.entity.SourceDb;
-import com.company.jmixdatastore.entity.Status;
-import com.company.jmixdatastore.entity.TableDb;
+import com.company.jmixdatastore.entity.*;
 import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.service.dbcon.DbConnectionService;
 import io.jmix.core.DataManager;
@@ -65,28 +62,36 @@ public class MySqlConnect implements DbConnect {
     }
 
     @Override
-    public List<KeyValueEntity> loadTableFields(SourceDb sourceDb, String tableName) {
+    public List<TableDetail> loadTableFields(SourceDb sourceDb, String tableName, TableDb tableDb) {
+        List<TableDetail> tableDetailList = new ArrayList<>();
         try (Connection connection = connectionService.getConnection(sourceDb)) {
             DatabaseMetaData metaData = connection.getMetaData();
-            ResultSet rs = metaData.getColumns(null, connection.getSchema(), tableName, "%");
-            List<KeyValueEntity> fields = new ArrayList<>();
 
+            ResultSet rs = metaData.getColumns(null, connection.getSchema(), tableName, "%");
             while (rs.next()) {
-                KeyValueEntity field = new KeyValueEntity();
-                field.setValue("name", rs.getString("COLUMN_NAME"));
-                field.setValue("dataType", rs.getString("TYPE_NAME"));
-                field.setValue("size", rs.getInt("COLUMN_SIZE"));
-                field.setValue("nullable", rs.getInt("NULLABLE") == DatabaseMetaData.columnNullable);
-                field.setValue("default", rs.getString("COLUMN_DEF"));
-                field.setValue("description", rs.getString("REMARKS"));
-                fields.add(field);
+                TableDetail tableDetail = dataManager.create(TableDetail.class);
+
+                tableDetail.setName(rs.getString("COLUMN_NAME"));
+                tableDetail.setDataType(rs.getString("TYPE_NAME"));
+                tableDetail.setIsNull(rs.getBoolean("IS_NULLABLE"));
+                tableDetail.setDefaultValue(rs.getString("COLUMN_DEF"));
+                tableDetail.setSize(Long.valueOf(rs.getString("COLUMN_SIZE")));
+                tableDetail.setStatus(Status.SYNCED);
+                tableDetail.setDescription(rs.getString("REMARKS"));
+                tableDetail.setTableDb(tableDb);
+
+                tableDetailList.add(tableDetail);
             }
-            return fields;
+            rs.close();
+
+            dataManager.saveAll(tableDetailList);
+            return tableDetailList;
         } catch (SQLException e) {
             e.printStackTrace();
             return Collections.emptyList();
         }
     }
+
 
     @Override
     public DBType getSupportedDbType() {
