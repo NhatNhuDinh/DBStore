@@ -35,6 +35,7 @@ public class DbManagementView extends StandardView {
 
     @Autowired
     protected DataManager dataManager;
+
     @Autowired
     private DialogWindows dialogWindows;
 
@@ -68,12 +69,14 @@ public class DbManagementView extends StandardView {
     @Autowired
     private Notifications notifications;
 
+
     @Subscribe(id = "newButton", subject = "clickListener")
     public void onNewButtonClick(final ClickEvent<JmixButton> event) {
         dialogWindows.detail(this, SourceDb.class)
                 .newEntity()
                 .withAfterCloseListener(closeEvent -> {
                     if (closeEvent.closedWith(StandardOutcome.SAVE)) {
+                        sourceDbsDl.load();
                         // Set the newly created entity in the combo box
                         SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
                         SourceDb entity = sourceDbDetailView.getEditedEntity();
@@ -108,17 +111,20 @@ public class DbManagementView extends StandardView {
 
     @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
     public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
-        SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-        fieldsDc.getMutableItems().clear();
-        String tableName = event.getItem().getValue("name");
-        notifications.create("Selected table " + tableName )
-                .withType(Notifications.Type.SUCCESS)
-                .withPosition(Notification.Position.TOP_END)
-                .show();
-        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-        List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
-        fieldsDc.setItems(fieldList);
-        fieldCount.setText("Tổng số cột: " + fieldList.size());
+        if( event.getItem() !=null){
+            SourceDb selectedSourceDb = dbSourseComboBox.getValue();
+            fieldsDc.getMutableItems().clear();
+            String tableName = event.getItem().getValue("name");
+            notifications.create("Selected table " + tableName )
+                    .withType(Notifications.Type.SUCCESS)
+                    .withPosition(Notification.Position.TOP_END)
+                    .show();
+            DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+            List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
+            fieldsDc.setItems(fieldList);
+            fieldCount.setText("Tổng số cột: " + fieldList.size());
+        }
+
     }
 
 }

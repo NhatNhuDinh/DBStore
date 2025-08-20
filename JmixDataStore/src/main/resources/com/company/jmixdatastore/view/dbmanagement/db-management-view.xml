@@ -39,6 +39,7 @@
         <hbox spacing="true"
               padding="true"
               width="100%">
+
             <h3 text="Quản lý cơ sở dữ liệu"/>
             <entityComboBox id="dbSourseComboBox"
                             itemsContainer="sourceDbsDc"
@@ -46,6 +47,7 @@
                             width="300px"/>
             <button id="newButton" text="Tạo mới"/>
             <button id="connectButton" text="Kết nối"/>
+            <h5 id="connectionStatus"/>
         </hbox>
 
         <!-- Main Content Area -->
