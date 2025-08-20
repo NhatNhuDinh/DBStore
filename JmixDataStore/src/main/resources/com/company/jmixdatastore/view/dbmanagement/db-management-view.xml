@@ -2,6 +2,8 @@
 <view xmlns="http://jmix.io/schema/flowui/view"
       title="msg://dbManagementView.title">
     <data>
+
+
         <collection id="sourceDbsDc" class="com.company.jmixdatastore.entity.SourceDb">
             <loader id="sourceDbsDl" readOnly="true">
                 <query>
@@ -10,24 +12,8 @@
             </loader>
             <fetchPlan extends="_base"/>
         </collection>
-
-        <keyValueCollection id="tablesDc">
-            <properties>
-                <property name="name" datatype="string"/>
-                <property name="description" datatype="string"/>
-            </properties>
-        </keyValueCollection>
-
-        <keyValueCollection id="fieldsDc">
-            <properties>
-                <property name="name" datatype="string"/>
-                <property name="dataType" datatype="string"/>
-                <property name="size" datatype="int"/>
-                <property name="nullable" datatype="boolean"/>
-                <property name="default" datatype="string"/>
-                <property name="description" datatype="string"/>
-            </properties>
-        </keyValueCollection>
+        <collection id="tableDbsDc" class="com.company.jmixdatastore.entity.TableDb"/>
+        <collection id="tableDetailsDc" class="com.company.jmixdatastore.entity.TableDetail"/>
     </data>
 
     <facets>
@@ -66,7 +52,7 @@
                 </hbox>
 
                 <dataGrid id="keyValueEntitiesDataGrid"
-                          dataContainer="tablesDc"
+                          dataContainer="tableDbsDc"
                           width="100%"
                           height="100%">
                     <actions>
@@ -80,6 +66,8 @@
                                 width="200px"/>
                         <column property="description"
                                 header="Mô tả"/>
+                        <column property="status"
+                                header="Trạng thái"/>
                     </columns>
                 </dataGrid>
             </vbox>
@@ -95,7 +83,7 @@
                 </hbox>
 
                 <dataGrid id="keyValueEntitiesDataGrid_1"
-                          dataContainer="fieldsDc"
+                          dataContainer="tableDetailsDc"
                           width="100%"
                           height="100%">
                     <actions>
@@ -113,10 +101,10 @@
                         <column property="size"
                                 header="Kích thước"
                                 width="100px"/>
-                        <column property="nullable"
-                                header="Null?"
+                        <column property="isNull"
+                                header="Bắt buộc?"
                                 width="80px"/>
-                        <column property="default"
+                        <column property="defaultValue"
                                 header="Giá trị mặc định"
                                 width="140px"/>
                         <column property="description"

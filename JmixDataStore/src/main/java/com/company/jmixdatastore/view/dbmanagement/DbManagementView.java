@@ -1,29 +1,25 @@
 package com.company.jmixdatastore.view.dbmanagement;
 
-
 import com.company.jmixdatastore.entity.SourceDb;
+import com.company.jmixdatastore.entity.TableDb;
+import com.company.jmixdatastore.entity.TableDetail;
 import com.company.jmixdatastore.service.dbcon.DbConnect;
 import com.company.jmixdatastore.service.dbcon.DbConnectFactory;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.DataManager;
-import io.jmix.core.entity.KeyValueEntity;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.Notifications;
 import io.jmix.flowui.component.combobox.EntityComboBox;
 import io.jmix.flowui.kit.component.button.JmixButton;
+import io.jmix.flowui.model.CollectionContainer;
 import io.jmix.flowui.model.CollectionLoader;
-import io.jmix.flowui.model.InstanceContainer;
-import io.jmix.flowui.model.KeyValueCollectionContainer;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Route(value = "db-management-view", layout = MainView.class)
@@ -47,18 +43,13 @@ public class DbManagementView extends StandardView {
     private EntityComboBox<SourceDb> dbSourseComboBox;
 
     @ViewComponent
-    private BoxLayout rightbox;
-
-
-    @ViewComponent
-    private KeyValueCollectionContainer tablesDc;
+    private CollectionContainer<TableDb> tableDbsDc;
 
     @ViewComponent
-    private KeyValueCollectionContainer fieldsDc;
+    private CollectionContainer<TableDetail> tableDetailsDc;
 
     @Autowired
     private Notifications notifications;
-
 
     @Subscribe(id = "newButton", subject = "clickListener")
     public void onNewButtonClick(final ClickEvent<JmixButton> event) {
@@ -67,49 +58,57 @@ public class DbManagementView extends StandardView {
                 .withAfterCloseListener(closeEvent -> {
                     if (closeEvent.closedWith(StandardOutcome.SAVE)) {
                         sourceDbsDl.load();
-                        // Set the newly created entity in the combo box
-                        SourceDbDetailView sourceDbDetailView = (SourceDbDetailView) closeEvent.getView();
-                        SourceDb entity = sourceDbDetailView.getEditedEntity();
-                        dbSourseComboBox.setValue(entity);
+                        SourceDbDetailView v = (SourceDbDetailView) closeEvent.getView();
+                        dbSourseComboBox.setValue(v.getEditedEntity());
                     }
-
                 })
                 .build()
                 .open();
-
     }
 
     @Subscribe(id = "connectButton", subject = "clickListener")
     public void onConnectButtonClick(final ClickEvent<JmixButton> event) {
         SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-        List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
-        tablesDc.getMutableItems().clear();
-        fieldsDc.getMutableItems().clear();
-        List<KeyValueEntity> tableEntities = new ArrayList<>();
-        for(String tableName : tableList) {
-            KeyValueEntity newTable = dataManager.create(KeyValueEntity.class);
-            newTable.setValue("name", tableName);
-            newTable.setValue("description", "Table: " + tableName);
-            tableEntities.add(newTable);
+        if (selectedSourceDb == null) {
+            notifications.create("Chọn cấu hình DB trước")
+                    .withType(Notifications.Type.WARNING)
+                    .withPosition(Notification.Position.TOP_END)
+                    .show();
+            return;
         }
-        tablesDc.setItems(tableEntities);
+        DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+
+        // load danh sách bảng từ DB nguồn
+        List<TableDb> tableList = dbConnect.loadTableList(selectedSourceDb);
+
+        // reset UI
+        tableDbsDc.getMutableItems().clear();
+        tableDetailsDc.getMutableItems().clear();
+
+        // đổ vào container
+        tableDbsDc.setItems(tableList);
     }
 
-    @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
-    public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
-        if( event.getItem() !=null){
+    // ✅ ĐÚNG ID container + đúng generic entity
+    @Subscribe(id = "tableDbsDc", target = Target.DATA_CONTAINER)
+    public void onTableDbsDcItemChange(final CollectionContainer.ItemChangeEvent<TableDb> event) {
+        TableDb selectedTable = event.getItem();
+        tableDetailsDc.getMutableItems().clear();
+
+        if (selectedTable != null) {
             SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-            String tableName = event.getItem().getValue("name");
-            notifications.create("Selected table " + tableName )
+            DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
+
+            notifications.create("Selected table " + selectedTable.getName())
                     .withType(Notifications.Type.SUCCESS)
                     .withPosition(Notification.Position.TOP_END)
                     .show();
-            DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-            List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
-            fieldsDc.setItems(fieldList);
+
+            // tải danh sách cột theo table đã chọn
+//            List<TableDetail> fieldList =
+//                    dbConnect.loadTableFields(selectedSourceDb, selectedTable.getName());
+//
+//            tableDetailsDc.setItems(fieldList);
         }
-
     }
-
 }
