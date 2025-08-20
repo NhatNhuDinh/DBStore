@@ -47,14 +47,13 @@
                             width="300px"/>
             <button id="newButton" text="Tạo mới"/>
             <button id="connectButton" text="Kết nối"/>
-            <h5 id="connectionStatus"/>
         </hbox>
 
         <!-- Main Content Area -->
         <split width="100%"
                height="100%"
                orientation="HORIZONTAL"
-               splitPosition="40%">
+               >
 
             <!-- Left Panel - Tables -->
             <vbox spacing="true"
@@ -127,13 +126,5 @@
             </vbox>
         </split>
 
-        <!-- Status Bar -->
-        <hbox spacing="true"
-              padding="true"
-              width="100%">
-            <span id="connectionStatus" text="Trạng thái: Chưa kết nối"/>
-            <span id="tableCount" text="Tổng số bảng: 0"/>
-            <span id="fieldCount" text="Tổng số cột: 0"/>
-        </hbox>
     </layout>
 </view>

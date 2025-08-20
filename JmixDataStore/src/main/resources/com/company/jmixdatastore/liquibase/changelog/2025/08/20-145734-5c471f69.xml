@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="JmixDataStore">
+        <createTable tableName="TABLE_DB">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TABLE_DB"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="TABLE_STATUS" type="VARCHAR(255)"/>
+            <column name="SOURCE_DB_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="JmixDataStore">
+        <createTable tableName="TABLE_DETAIL">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TABLE_DETAIL"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="DATA_TYPE" type="VARCHAR(255)"/>
+            <column name="SIZE_" type="BIGINT"/>
+            <column name="DEFAULT_VALUE" type="VARCHAR(255)"/>
+            <column name="IS_NULL" type="BOOLEAN"/>
+            <column name="DESCRIPTION" type="CLOB"/>
+            <column name="TABLE_DB_ID" type="UUID"/>
+            <column name="STATUS" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="JmixDataStore">
+        <createIndex indexName="IDX_TABLE_DB_SOURCE_DB" tableName="TABLE_DB">
+            <column name="SOURCE_DB_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="SOURCE_DB_ID" baseTableName="TABLE_DB"
+                                 constraintName="FK_TABLE_DB_ON_SOURCE_DB" referencedColumnNames="ID"
+                                 referencedTableName="SOURCE_DB"/>
+    </changeSet>
+    <changeSet id="4" author="JmixDataStore">
+        <createIndex indexName="IDX_TABLE_DETAIL_TABLE_DB" tableName="TABLE_DETAIL">
+            <column name="TABLE_DB_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="TABLE_DB_ID" baseTableName="TABLE_DETAIL"
+                                 constraintName="FK_TABLE_DETAIL_ON_TABLE_DB" referencedColumnNames="ID"
+                                 referencedTableName="TABLE_DB"/>
+    </changeSet>
+</databaseChangeLog>

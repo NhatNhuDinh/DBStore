@@ -3,12 +3,10 @@ package com.company.jmixdatastore.entity;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -47,6 +45,17 @@ public class SourceDb {
 
     @Column(name = "DATATYPE")
     private String dbtype;
+
+    @OneToMany(mappedBy = "sourceDb")
+    private List<TableDb> tableDbs;
+
+    public List<TableDb> getTableDbs() {
+        return tableDbs;
+    }
+
+    public void setTableDbs(List<TableDb> tableDbs) {
+        this.tableDbs = tableDbs;
+    }
 
     public void setPort(String port) {
         this.port = port;

@@ -8,7 +8,6 @@ import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.listbox.ListBox;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.DataManager;
@@ -26,7 +25,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Route(value = "db-management-view", layout = MainView.class)
 @ViewController(id = "DbManagementView")
@@ -51,14 +49,6 @@ public class DbManagementView extends StandardView {
     @ViewComponent
     private BoxLayout rightbox;
 
-    @ViewComponent
-    private Span tableCount;
-
-    @ViewComponent
-    private Span fieldCount;
-
-    @ViewComponent
-    private Span connectionStatus;
 
     @ViewComponent
     private KeyValueCollectionContainer tablesDc;
@@ -95,6 +85,7 @@ public class DbManagementView extends StandardView {
         DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
         List<String> tableList = dbConnect.loadTableList(selectedSourceDb);
         tablesDc.getMutableItems().clear();
+        fieldsDc.getMutableItems().clear();
         List<KeyValueEntity> tableEntities = new ArrayList<>();
         for(String tableName : tableList) {
             KeyValueEntity newTable = dataManager.create(KeyValueEntity.class);
@@ -103,17 +94,12 @@ public class DbManagementView extends StandardView {
             tableEntities.add(newTable);
         }
         tablesDc.setItems(tableEntities);
-        tableCount.setText("Tổng số bảng: " + tableEntities.size());
-        fieldsDc.setItems(List.of());
-        fieldCount.setText("Tổng số cột: 0");
-        connectionStatus.setText("Trạng thái: Đã kết nối");
     }
 
     @Subscribe(id = "tablesDc", target = Target.DATA_CONTAINER)
     public void onTablesDcItemChange(final InstanceContainer.ItemChangeEvent<KeyValueEntity> event) {
         if( event.getItem() !=null){
             SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-            fieldsDc.getMutableItems().clear();
             String tableName = event.getItem().getValue("name");
             notifications.create("Selected table " + tableName )
                     .withType(Notifications.Type.SUCCESS)
@@ -122,7 +108,6 @@ public class DbManagementView extends StandardView {
             DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
             List<KeyValueEntity> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableName);
             fieldsDc.setItems(fieldList);
-            fieldCount.setText("Tổng số cột: " + fieldList.size());
         }
 
     }

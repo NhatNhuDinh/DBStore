@@ -38,14 +38,13 @@ dependencies {
 
 
     runtimeOnly 'mysql:mysql-connector-java:8.0.33'
-    runtimeOnly 'org.postgresql:postgresql:42.7.3'
-    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11'
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8:21.9.0.0'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'io.jmix.flowui:jmix-flowui-test-assist'
+    implementation 'org.postgresql:postgresql'
 }
 
 configurations.implementation {
