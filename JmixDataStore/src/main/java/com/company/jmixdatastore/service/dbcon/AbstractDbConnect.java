@@ -50,8 +50,14 @@ public abstract class AbstractDbConnect implements DbConnect {
 
             // Đồng bộ giữa remote và local
             updateTableDb(tables, localTables, sourceDb);
-
             dataManager.saveAll(localTables);
+
+            // Đồng bộ field cho từng bảng (chỉ bảng không bị DELETED)
+            for (TableDb tableDb : localTables) {
+                if (tableDb.getStatus() != Status.DELETED) {
+                    loadTableFields(sourceDb, schema, tableDb);
+                }
+            }
 
             return localTables;
         } catch (SQLException e) {
@@ -60,11 +66,87 @@ public abstract class AbstractDbConnect implements DbConnect {
         }
     }
 
-    /**
-     * Đồng bộ bảng giữa remote và local, thêm mới và cập nhật trạng thái.
-     */
+    @Override
+    public List<TableDetail> loadTableFields(SourceDb sourceDb, String tableName, TableDb tableDb) {
+        try (Connection connection = connectionService.getConnection(sourceDb)) {
+            DatabaseMetaData metaData = connection.getMetaData();
+            String schema = getSchema(connection, sourceDb);
+
+            // 1. Lấy field remote: remoteFieldInfos map tên cột -> info
+            Map<String, Map<String, Object>> remoteFieldInfos = new LinkedHashMap<>();
+            try (ResultSet rs = metaData.getColumns(null, schema, tableName, "%")) {
+                while (rs.next()) {
+                    String fieldName = rs.getString("COLUMN_NAME");
+                    Map<String, Object> info = new HashMap<>();
+                    info.put("COLUMN_NAME", fieldName);
+                    info.put("TYPE_NAME", rs.getString("TYPE_NAME"));
+                    info.put("IS_NULLABLE", rs.getString("IS_NULLABLE"));
+                    info.put("COLUMN_DEF", rs.getString("COLUMN_DEF"));
+                    info.put("COLUMN_SIZE", rs.getString("COLUMN_SIZE"));
+                    info.put("REMARKS", rs.getString("REMARKS"));
+                    remoteFieldInfos.put(fieldName.toLowerCase(), info);
+                }
+            }
+
+            // 2. Lấy field local của tableDb này
+            List<TableDetail> localFields = dataManager.load(TableDetail.class)
+                    .query("select d from TableDetail d where d.tableDb.id = :tid")
+                    .parameter("tid", tableDb.getId())
+                    .list();
+
+            // 4. Lưu lại tất cả
+            updateTableField(remoteFieldInfos, localFields, tableDb);
+            dataManager.saveAll(localFields);
+
+            return localFields;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    protected void updateTableField(
+            Map<String, Map<String, Object>> remoteFieldInfos,
+            List<TableDetail> localFields,
+            TableDb tableDb
+    ) {
+        Map<String, TableDetail> existByName = new LinkedHashMap<>();
+        for (TableDetail field : localFields) {
+            if (field.getName() != null)
+                existByName.put(field.getName().toLowerCase(), field);
+        }
+
+        // Thêm mới hoặc update status SYNCED
+        for (String fieldNameLower : remoteFieldInfos.keySet()) {
+            TableDetail detail = existByName.get(fieldNameLower);
+            Map<String, Object> info = remoteFieldInfos.get(fieldNameLower);
+
+            if (detail == null) {
+                detail = dataManager.create(TableDetail.class);
+                detail.setTableDb(tableDb);
+                detail.setName((String) info.get("COLUMN_NAME"));
+                localFields.add(detail);
+            }
+            // Luôn cập nhật các thông tin mới nhất
+            detail.setDataType((String) info.get("TYPE_NAME"));
+            String isNullable = (String) info.get("IS_NULLABLE");
+            detail.setIsNull("YES".equalsIgnoreCase(isNullable) || "1".equals(isNullable));
+            detail.setDefaultValue((String) info.get("COLUMN_DEF"));
+            String size = (String) info.get("COLUMN_SIZE");
+            detail.setSize(size != null ? Long.valueOf(size) : null);
+            detail.setStatus(Status.SYNCED);
+            detail.setDescription((String) info.get("REMARKS"));
+
+            existByName.remove(fieldNameLower);
+        }
+
+        // Các field còn lại là field local đã bị xóa trên remote
+        for (TableDetail orphan : existByName.values()) {
+            orphan.setStatus(Status.DELETED);
+        }
+    }
+
     protected void updateTableDb(List<String> remoteTableNames, List<TableDb> localTableDbs, SourceDb sourceDb) {
-        // Map name -> TableDb (local)
         Map<String, TableDb> existByName = new LinkedHashMap<>();
         for (TableDb t : localTableDbs) {
             if (t.getName() != null) {
@@ -85,46 +167,13 @@ public abstract class AbstractDbConnect implements DbConnect {
                 localTableDbs.add(tableDb);
             } else {
                 tableDb.setStatus(Status.SYNCED);
-                existByName.remove(key); // Đánh dấu đã kiểm tra
+                existByName.remove(key);
             }
         }
 
         // Còn lại là bảng đã xóa trên remote
         for (TableDb orphan : existByName.values()) {
             orphan.setStatus(Status.DELETED);
-        }
-    }
-
-    @Override
-    public List<TableDetail> loadTableFields(SourceDb sourceDb, String tableName, TableDb tableDb) {
-        List<TableDetail> tableDetailList = new ArrayList<>();
-        try (Connection connection = connectionService.getConnection(sourceDb)) {
-            DatabaseMetaData metaData = connection.getMetaData();
-            String schema = getSchema(connection, sourceDb);
-
-            try (ResultSet rs = metaData.getColumns(null, schema, tableName, "%")) {
-                while (rs.next()) {
-                    TableDetail tableDetail = dataManager.create(TableDetail.class);
-
-                    tableDetail.setName(rs.getString("COLUMN_NAME"));
-                    tableDetail.setDataType(rs.getString("TYPE_NAME"));
-                    String isNullable = rs.getString("IS_NULLABLE");
-                    tableDetail.setIsNull("YES".equalsIgnoreCase(isNullable) || "1".equals(isNullable)); // Chuẩn hóa kiểu boolean
-                    tableDetail.setDefaultValue(rs.getString("COLUMN_DEF"));
-                    String size = rs.getString("COLUMN_SIZE");
-                    tableDetail.setSize(size != null ? Long.valueOf(size) : null);
-                    tableDetail.setStatus(Status.SYNCED);
-                    tableDetail.setDescription(rs.getString("REMARKS"));
-                    tableDetail.setTableDb(tableDb);
-
-                    tableDetailList.add(tableDetail);
-                }
-            }
-            dataManager.saveAll(tableDetailList);
-            return tableDetailList;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return Collections.emptyList();
         }
     }
 

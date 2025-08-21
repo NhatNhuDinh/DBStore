@@ -91,7 +91,8 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
                 hostField.setValue(hostPort[0]);
                 portField.setValue(hostPort.length > 1 ? hostPort[1] : "3306");
                 dbnameField.setValue(main.length > 1 ? main[1].split("[?;]")[0] : "");
-            } else if (url.startsWith("jdbc:postgresql://")) {
+            }
+            else if (url.startsWith("jdbc:postgresql://")) {
                 dbtypeField.setValue(DBType.POSTGRESQL);
                 String s = url.substring("jdbc:postgresql://".length());
                 String[] main = s.split("/", 2);
@@ -99,7 +100,8 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
                 hostField.setValue(hostPort[0]);
                 portField.setValue(hostPort.length > 1 ? hostPort[1] : "5432");
                 dbnameField.setValue(main.length > 1 ? main[1].split("[?;]")[0] : "");
-            } else if (url.startsWith("jdbc:sqlserver://")) {
+            }
+            else if (url.startsWith("jdbc:sqlserver://")) {
                 dbtypeField.setValue(DBType.SQLSERVER);
                 String s = url.substring("jdbc:sqlserver://".length());
                 String[] main = s.split(";", 2);
@@ -155,7 +157,7 @@ public class SourceDbDetailView extends StandardDetailView<SourceDb> {
 
 
     @Subscribe(id = "test_connection", subject = "clickListener")
-    public void onDetailActionsClick(final ClickEvent<HorizontalLayout> event) {
+    public void onTestActionsClick(final ClickEvent<HorizontalLayout> event) {
         SourceDb currentSourceDb = getEditedEntity();
         DbConnect dbConnect = dbConnectFactory.get(currentSourceDb);
         boolean isConnected = dbConnect.connect(currentSourceDb);

@@ -12,5 +12,6 @@ public interface DbConnect {
     boolean connect(SourceDb sourceDb);
     List<TableDb> loadTableList(SourceDb sourceDb);
     List<TableDetail> loadTableFields(SourceDb sourceDb, String tableName, TableDb tableDb);
+
     DBType getSupportedDbType();
 }

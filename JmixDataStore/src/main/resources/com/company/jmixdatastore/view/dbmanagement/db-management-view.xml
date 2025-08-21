@@ -109,6 +109,8 @@
                                 width="140px"/>
                         <column property="description"
                                 header="Mô tả"/>
+                        <column property="status"
+                                header="Trạng thái"/>
                     </columns>
                 </dataGrid>
             </vbox>

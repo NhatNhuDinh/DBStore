@@ -10,7 +10,8 @@ public enum Status implements EnumClass<String> {
     NEW("N"),
     DELETED("D"),
     CHANGED("C"),
-    SYNCED("S");
+    SYNCED("S"),
+    UNAVAILABLE("U");
 
     private final String id;
 
