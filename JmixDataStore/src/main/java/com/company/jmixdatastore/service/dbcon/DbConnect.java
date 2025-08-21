@@ -10,8 +10,12 @@ import java.util.List;
 public interface DbConnect {
 
     boolean connect(SourceDb sourceDb);
+
     List<TableDb> loadTableList(SourceDb sourceDb);
-    List<TableDetail> loadTableFields(SourceDb sourceDb, String tableName, TableDb tableDb);
+    List<TableDetail> loadTableFields(TableDb tableDb);
+
+    List<TableDb> syncTableList(SourceDb sourceDb);
+    List<TableDetail> syncTableFields(SourceDb sourceDb, TableDb tableDb);
 
     DBType getSupportedDbType();
 }

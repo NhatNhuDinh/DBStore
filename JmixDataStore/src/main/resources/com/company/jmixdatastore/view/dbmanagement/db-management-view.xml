@@ -24,7 +24,8 @@
         <!-- Header Panel -->
         <hbox spacing="true"
               padding="true"
-              width="100%">
+              width="100%"
+              alignItems="CENTER">
 
             <h3 text="Quản lý cơ sở dữ liệu"/>
             <entityComboBox id="dbSourseComboBox"
@@ -33,6 +34,7 @@
                             width="300px"/>
             <button id="newButton" text="Tạo mới"/>
             <button id="connectButton" text="Kết nối"/>
+            <icon id="statusIcon" icon="vaadin:circle"/>
         </hbox>
 
         <!-- Main Content Area -->
@@ -102,7 +104,7 @@
                                 header="Kích thước"
                                 width="100px"/>
                         <column property="isNull"
-                                header="Bắt buộc?"
+                                header="Bắt buộc"
                                 width="80px"/>
                         <column property="defaultValue"
                                 header="Giá trị mặc định"

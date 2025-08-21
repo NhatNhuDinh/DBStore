@@ -7,11 +7,11 @@ import org.springframework.lang.Nullable;
 
 public enum Status implements EnumClass<String> {
 
-    NEW("N"),
-    DELETED("D"),
-    CHANGED("C"),
-    SYNCED("S"),
-    UNAVAILABLE("U");
+    MỚI("Mới"),
+    ĐÃ_XÓA("Đã xóa"),
+    ĐÃ_THAY_ĐỔI("Đã thay đổi"),
+    ĐÃ_ĐỒNG_BỘ("Đã đồng bộ"),
+    NGOẠI_TUYẾN("Ngoại tuyến");
 
     private final String id;
 

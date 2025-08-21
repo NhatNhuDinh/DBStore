@@ -9,17 +9,23 @@ import com.company.jmixdatastore.service.dbcon.DbConnectFactory;
 import com.company.jmixdatastore.view.main.MainView;
 import com.company.jmixdatastore.view.sourcedb.SourceDbDetailView;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.DataManager;
+import io.jmix.core.event.EntitySavingEvent;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.Notifications;
+import io.jmix.flowui.component.checkbox.Switch;
 import io.jmix.flowui.component.combobox.EntityComboBox;
 import io.jmix.flowui.kit.component.button.JmixButton;
 import io.jmix.flowui.model.CollectionContainer;
 import io.jmix.flowui.model.CollectionLoader;
 import io.jmix.flowui.view.*;
+import org.springframework.context.event.EventListener;
 
+import java.awt.*;
 import java.util.List;
 
 @Route(value = "db-management-view", layout = MainView.class)
@@ -43,6 +49,9 @@ public class DbManagementView extends StandardView {
 
     @ViewComponent
     private CollectionContainer<TableDetail> tableDetailsDc;
+
+    @ViewComponent
+    private Icon statusIcon;
 
     private boolean isOnline = false;
 
@@ -81,57 +90,41 @@ public class DbManagementView extends StandardView {
                     .show();
             return;
         }
+
         DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-        isOnline = dbConnect.connect(selectedSourceDb);
+
+        boolean connected = dbConnect.connect(selectedSourceDb);
+        isOnline = connected;
+        updateStatusIcon(connected);
 
         tableDbsDc.getMutableItems().clear();
         tableDetailsDc.getMutableItems().clear();
 
-        if (isOnline) {
-            notifications.create("Kết nối thành công! Bắt đầu đồng bộ dữ liệu")
-                    .withType(Notifications.Type.SUCCESS)
-                    .withPosition(Notification.Position.TOP_END)
-                    .show();
-
-            // Query lấy số lượng bảng của SourceDb này
-            List<Long> counts = dataManager.loadValue(
-                            "select count(e) from TableDb e where e.sourceDb = :sourceDb", Long.class
-                    )
-                    .parameter("sourceDb", selectedSourceDb)
-                    .list();
-
-            long count = (counts.isEmpty() || counts.get(0) == null) ? 0L : counts.get(0);
-
-            // Nếu là lần đầu (count == 0), mới thực hiện lưu bảng và các field
-            List<TableDb> tableList = dbConnect.loadTableList(selectedSourceDb);
+        if (connected) {
+            notifications.create("Kết nối thành công!").withType(Notifications.Type.SUCCESS).withPosition(Notification.Position.TOP_END).show();
+            List<TableDb> tableList;
+            tableList = dbConnect.syncTableList(selectedSourceDb);
             tableDbsDc.setItems(tableList);
-            if (count == 0 && !tableList.isEmpty()) {
-                for (TableDb tableDb : tableList) {
-                    dataManager.save(tableDb);
-                    // Lấy fields/columns của bảng
-                    List<TableDetail> fieldList = dbConnect.loadTableFields(selectedSourceDb, tableDb.getName(), tableDb);
-                    for (TableDetail field : fieldList) {
-                        field.setTableDb(tableDb); // Gán quan hệ nếu cần
-                        dataManager.save(field);
-                    }
-                }
+
+            if (!tableList.isEmpty()) {
+                tableDbsDc.setItem(tableList.getFirst());
             }
+
         } else {
-            notifications.create("Kết nối thất bại! Dữ liệu được hiển thị ở trạng thái offline")
+            notifications.create("Không kết nối được DB! Hiển thị trạng thái offline.")
                     .withType(Notifications.Type.ERROR)
                     .withPosition(Notification.Position.TOP_END)
                     .show();
-            List<TableDb> localTables = dataManager.load(TableDb.class)
-                    .query("select e from TableDb e where e.sourceDb = :sourceDb")
-                    .parameter("sourceDb", selectedSourceDb)
-                    .list();
+            List<TableDb> localTables = dbConnect.loadTableList(selectedSourceDb);
             for (TableDb table : localTables) {
-                table.setStatus(Status.UNAVAILABLE);
+                table.setStatus(Status.NGOẠI_TUYẾN);
             }
             tableDbsDc.setItems(localTables);
+            if (!localTables.isEmpty()) {
+                tableDbsDc.setItem(localTables.getFirst());
+            }
         }
     }
-
 
     @Subscribe(id = "tableDbsDc", target = Target.DATA_CONTAINER)
     public void onTableDbsDcItemChange(final CollectionContainer.ItemChangeEvent<TableDb> event) {
@@ -140,26 +133,23 @@ public class DbManagementView extends StandardView {
 
         if (selectedTable != null) {
             SourceDb selectedSourceDb = dbSourseComboBox.getValue();
-
-            notifications.create("Bảng " + selectedTable.getName() + " được chọn")
-                    .withType(Notifications.Type.SUCCESS)
-                    .withPosition(Notification.Position.TOP_END)
-                    .show();
-
-            List<TableDetail> fieldList;
-            if (isOnline) {
-                DbConnect dbConnect = dbConnectFactory.get(selectedSourceDb);
-                fieldList = dbConnect.loadTableFields(selectedSourceDb, selectedTable.getName(), selectedTable);
-            } else {
-                fieldList = dataManager.load(TableDetail.class)
-                        .query("select e from TableDetail e where e.tableDb.id = :tableDbId")
-                        .parameter("tableDbId", selectedTable.getId())
-                        .list();
+            List<TableDetail> fieldList = dbConnectFactory.get(selectedSourceDb)
+                    .loadTableFields(selectedTable);
+            if (!isOnline) {
                 for (TableDetail field : fieldList) {
-                    field.setStatus(Status.UNAVAILABLE);
+                    field.setStatus(Status.NGOẠI_TUYẾN);
                 }
             }
             tableDetailsDc.setItems(fieldList);
         }
     }
+
+    public void updateStatusIcon(boolean isOnline) {
+        if (isOnline) {
+            statusIcon.setColor("green");
+        } else {
+            statusIcon.setColor("gray");
+        }
+    }
+
 }

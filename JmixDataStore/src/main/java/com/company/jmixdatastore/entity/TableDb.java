@@ -10,8 +10,7 @@ import java.util.UUID;
 
 @JmixEntity
 @Table(name = "TABLE_DB", indexes = {
-        @Index(name = "IDX_TABLE_DB_SOURCE_DB", columnList = "SOURCE_DB_ID"),
-        @Index(name = "IDX_TABLE_DB_TABLE_DETAILS", columnList = "")
+        @Index(name = "IDX_TABLE_DB_SOURCE_DB", columnList = "SOURCE_DB_ID")
 })
 @Entity
 public class TableDb {

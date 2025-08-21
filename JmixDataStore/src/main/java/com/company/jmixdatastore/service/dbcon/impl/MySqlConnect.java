@@ -1,6 +1,8 @@
 package com.company.jmixdatastore.service.dbcon.impl;
 
 import com.company.jmixdatastore.entity.DBType;
+import com.company.jmixdatastore.entity.SourceDb;
+import com.company.jmixdatastore.entity.TableDb;
 import com.company.jmixdatastore.service.dbcon.AbstractDbConnect;
 import org.springframework.stereotype.Component;
 

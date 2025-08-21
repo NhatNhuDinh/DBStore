@@ -11,9 +11,11 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import io.jmix.core.event.EntitySavingEvent;
 import io.jmix.flowui.Notifications;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 
 @Route(value = "source-dbs/:id", layout = MainView.class)
 @ViewController(id = "SourceDb.detail")

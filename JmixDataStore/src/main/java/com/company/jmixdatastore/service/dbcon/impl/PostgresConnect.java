@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class PostgresConnect extends AbstractDbConnect {
 
     @Override
-    protected String getSchema(Connection connection, SourceDb sourceDb) throws SQLException {
+    protected String getSchema(Connection connection) throws SQLException {
         return "public";
     }
 
